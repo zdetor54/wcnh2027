@@ -9,7 +9,7 @@ Create all files as specified in the AGENT.md file structure. Build every page f
 ### Page-by-page requirements:
 
 **index.html (Landing Page)**
-- Hero section: conference name "WCNH 2026", tagline placeholder, dates "[15–18 September 2026]", location "[University of Cambridge, UK]"
+- Hero section: conference name "WCNH2027", tagline "World Congress on Neurohypophysial Hormones", dates "[May 2027]", location "[University of Cambridge, UK]"
 - Brief overview section: 2-3 paragraphs of placeholder text describing the conference theme and scope
 - Important dates timeline: vertical timeline component with 5-6 milestones (symposia deadline, abstract deadline, early bird registration, programme release, conference dates). Style with CSS, not an image.
 - Organising committee section: grid of cards with name, role, institution, and placeholder photo box for 6-8 committee members
@@ -48,7 +48,7 @@ Create all files as specified in the AGENT.md file structure. Build every page f
 ### Shared components:
 
 **Navbar**
-- Logo placeholder (text-based "WCNH 2026" is fine) on the left
+- Logo placeholder (text-based "WCNH2027" is fine) on the left
 - Nav links: Home, Programme, Registration, Symposia, Abstracts, Awards, Sponsorships
 - "Register" button (styled differently from nav links, e.g. `btn-primary`) on the right
 - Active state on current page — use a simple JS snippet or just set the class manually per page
