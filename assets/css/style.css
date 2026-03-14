@@ -346,11 +346,19 @@ a:focus {
   gap: 0.8rem;
 }
 
+.countdown-grid-single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .countdown-card {
   padding: 1rem 0.75rem;
   border-radius: 1rem;
   background: var(--color-primary-soft);
   text-align: center;
+}
+
+.countdown-grid-single .countdown-card {
+  padding: 1.5rem 1rem;
 }
 
 .countdown-value {
@@ -369,11 +377,15 @@ a:focus {
   text-transform: uppercase;
 }
 
-.countdown-note {
-  margin-top: 1rem;
-  margin-bottom: 0;
-  color: var(--color-muted-text);
-  font-size: 0.92rem;
+.countdown-grid-single .countdown-value {
+  font-size: clamp(2.75rem, 9vw, 4.5rem);
+  line-height: 1;
+}
+
+.countdown-grid-single .countdown-label {
+  margin-top: 0.45rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.16em;
 }
 
 .section-space {
