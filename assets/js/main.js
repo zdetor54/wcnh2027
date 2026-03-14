@@ -155,7 +155,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (countdown) {
     const countdownDate = countdown.dataset.countdownDate;
-    const dateLabel = document.querySelector("[data-countdown-label]");
     const fields = {
       days: countdown.querySelector('[data-countdown-field="days"]'),
       hours: countdown.querySelector('[data-countdown-field="hours"]'),
@@ -169,9 +168,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const difference = conferenceDate.getTime() - now.getTime();
 
       if (Number.isNaN(conferenceDate.getTime())) {
-        if (dateLabel) {
-          dateLabel.textContent = "Countdown unavailable until the opening date is confirmed.";
-        }
         return;
       }
 
@@ -181,10 +177,6 @@ document.addEventListener("DOMContentLoaded", () => {
             field.textContent = "00";
           }
         });
-
-        if (dateLabel) {
-          dateLabel.textContent = "WCNH2027 is underway.";
-        }
         return;
       }
 
@@ -201,10 +193,6 @@ document.addEventListener("DOMContentLoaded", () => {
           fields[key].textContent = String(value).padStart(2, "0");
         }
       });
-
-      if (dateLabel) {
-        dateLabel.textContent = "Countdown based on a provisional opening placeholder of 1 May 2027.";
-      }
     };
 
     updateCountdown();

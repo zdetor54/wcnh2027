@@ -1,20 +1,20 @@
 :root {
   --font-body: "Inter", sans-serif;
   --font-display: "Playfair Display", serif;
-  --color-primary: #0c4557;
-  --color-primary-soft: #edf4f6;
-  --color-secondary: #1c6a7a;
-  --color-accent: #c88d2c;
-  --color-accent-soft: #f4e8d2;
-  --color-deep: #102d36;
-  --color-ink: #243f48;
-  --color-muted-text: #5f7680;
+  --color-primary: #4d6576;
+  --color-primary-soft: #edf1f3;
+  --color-secondary: #7f93a2;
+  --color-accent: #cda44d;
+  --color-accent-soft: #efe2b8;
+  --color-deep: #32363a;
+  --color-ink: #4c565b;
+  --color-muted-text: #70797d;
   --color-surface: #ffffff;
-  --color-surface-alt: #f5f2eb;
-  --color-border: #d7e2e6;
-  --color-footer: #0f2a33;
-  --shadow-soft: 0 1rem 2.5rem rgba(16, 45, 54, 0.08);
-  --shadow-card: 0 1.25rem 2.5rem rgba(16, 45, 54, 0.08);
+  --color-surface-alt: #f3ede2;
+  --color-border: #d7d0c2;
+  --color-footer: #343b40;
+  --shadow-soft: 0 1rem 2.5rem rgba(50, 54, 58, 0.08);
+  --shadow-card: 0 1.25rem 2.5rem rgba(50, 54, 58, 0.08);
   --section-space: clamp(4rem, 7vw, 6rem);
   --bs-primary: var(--color-primary);
   --bs-secondary: var(--color-secondary);
@@ -194,9 +194,9 @@ a:focus {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at top left, rgba(200, 141, 44, 0.24), transparent 32%),
-    radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.16), transparent 28%),
-    linear-gradient(135deg, #113947 0%, #0c4557 45%, #1d6878 100%);
+    radial-gradient(circle at top left, rgba(205, 164, 77, 0.26), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(255, 246, 225, 0.14), transparent 28%),
+    linear-gradient(135deg, #4a5963 0%, #607585 45%, #8d9ca5 100%);
   content: "";
 }
 
@@ -240,7 +240,7 @@ a:focus {
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 1rem;
-  color: rgba(255, 255, 255, 0.86);
+  color: rgba(239, 226, 184, 0.96);
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -251,7 +251,7 @@ a:focus {
   display: inline-block;
   width: 2.5rem;
   height: 1px;
-  background: rgba(255, 255, 255, 0.45);
+  background: rgba(205, 164, 77, 0.7);
   content: "";
 }
 
@@ -279,6 +279,16 @@ a:focus {
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
   font-size: 0.95rem;
+}
+
+.hero-meta-compact {
+  margin: 0;
+  gap: 0.6rem;
+}
+
+.hero-meta-compact span {
+  padding: 0.45rem 0.8rem;
+  font-size: 0.84rem;
 }
 
 .lead-copy {
@@ -311,11 +321,11 @@ a:focus {
 }
 
 .hero-panel .eyebrow {
-  color: var(--color-secondary);
+  color: var(--color-accent);
 }
 
 .hero-panel .eyebrow::before {
-  background: rgba(28, 106, 122, 0.25);
+  background: rgba(205, 164, 77, 0.45);
 }
 
 .stat-list {
@@ -346,11 +356,19 @@ a:focus {
   gap: 0.8rem;
 }
 
+.countdown-grid-single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .countdown-card {
   padding: 1rem 0.75rem;
   border-radius: 1rem;
   background: var(--color-primary-soft);
   text-align: center;
+}
+
+.countdown-grid-single .countdown-card {
+  padding: 1.5rem 1rem;
 }
 
 .countdown-value {
@@ -369,11 +387,15 @@ a:focus {
   text-transform: uppercase;
 }
 
-.countdown-note {
-  margin-top: 1rem;
-  margin-bottom: 0;
-  color: var(--color-muted-text);
-  font-size: 0.92rem;
+.countdown-grid-single .countdown-value {
+  font-size: clamp(2.75rem, 9vw, 4.5rem);
+  line-height: 1;
+}
+
+.countdown-grid-single .countdown-label {
+  margin-top: 0.45rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.16em;
 }
 
 .section-space {
@@ -446,6 +468,39 @@ a:focus {
 
 .placeholder-box.placeholder-photo {
   min-height: 16rem;
+}
+
+.placeholder-box.placeholder-scenic {
+  min-height: 13rem;
+  background:
+    radial-gradient(circle at 18% 30%, rgba(49, 53, 57, 0.82) 0, rgba(49, 53, 57, 0.82) 8%, transparent 8.5%),
+    radial-gradient(circle at 50% 27%, rgba(49, 53, 57, 0.82) 0, rgba(49, 53, 57, 0.82) 8%, transparent 8.5%),
+    radial-gradient(circle at 81% 31%, rgba(49, 53, 57, 0.82) 0, rgba(49, 53, 57, 0.82) 8%, transparent 8.5%),
+    linear-gradient(90deg, transparent 0 7%, rgba(205, 164, 77, 0.82) 7% 28%, transparent 28% 39%, rgba(205, 164, 77, 0.82) 39% 61%, transparent 61% 72%, rgba(205, 164, 77, 0.82) 72% 93%, transparent 93%),
+    linear-gradient(90deg, transparent 0 5%, rgba(104, 126, 144, 0.85) 5% 9%, transparent 9% 26%, rgba(104, 126, 144, 0.85) 26% 30%, transparent 30% 37%, rgba(104, 126, 144, 0.85) 37% 41%, transparent 41% 59%, rgba(104, 126, 144, 0.85) 59% 63%, transparent 63% 70%, rgba(104, 126, 144, 0.85) 70% 74%, transparent 74% 91%, rgba(104, 126, 144, 0.85) 91% 95%, transparent 95%),
+    linear-gradient(180deg, rgba(138, 154, 166, 0.26), rgba(239, 226, 184, 0.34)),
+    linear-gradient(135deg, rgba(77, 101, 118, 0.14), rgba(205, 164, 77, 0.18)),
+    var(--color-primary-soft);
+  border-color: rgba(77, 101, 118, 0.24);
+}
+
+.scenic-figure {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid rgba(77, 101, 118, 0.24);
+  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(77, 101, 118, 0.08), rgba(205, 164, 77, 0.12));
+  box-shadow: var(--shadow-soft);
+}
+
+.scenic-image {
+  display: block;
+  width: 100%;
+  height: clamp(10rem, 26vw, 13rem);
+  object-fit: cover;
+  object-position: center top;
+  filter: saturate(0.92) contrast(0.96);
 }
 
 .placeholder-box.placeholder-logo {
