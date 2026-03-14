@@ -110,24 +110,21 @@ a:focus {
 
 .brand-mark {
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 4rem;
-  height: 3rem;
+  height: 4rem;
   border-radius: 0.95rem;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-  color: #fff;
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  line-height: 0.9;
+  background: linear-gradient(135deg, rgba(77, 101, 118, 0.08), rgba(205, 164, 77, 0.12));
   box-shadow: 0 0.75rem 1.5rem rgba(12, 69, 87, 0.18);
+  overflow: hidden;
 }
 
-.brand-mark span {
+.brand-mark img {
   display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .navbar-brand small {
@@ -368,7 +365,31 @@ a:focus {
 }
 
 .countdown-grid-single .countdown-card {
+  position: relative;
   padding: 1.5rem 1rem;
+  overflow: hidden;
+}
+
+.countdown-metric {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.25rem;
+  width: 100%;
+  z-index: 1;
+}
+
+.countdown-logo {
+  width: clamp(13.5rem, 38vw, 17rem);
+  height: clamp(13.5rem, 38vw, 17rem);
+  object-fit: cover;
+  object-position: center top;
+  flex: 0 0 46%;
+  align-self: flex-start;
+  margin: -0.75rem 0 -6rem -3rem;
+  opacity: 0.88;
+  filter: saturate(0.72);
 }
 
 .countdown-value {
@@ -396,6 +417,13 @@ a:focus {
   margin-top: 0.45rem;
   font-size: 0.9rem;
   letter-spacing: 0.16em;
+}
+
+.countdown-metric > span:last-child {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .section-space {
