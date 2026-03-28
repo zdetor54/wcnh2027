@@ -8,7 +8,7 @@ const renderSiteChrome = () => {
         <div class="container">
           <a class="navbar-brand d-inline-flex align-items-center text-decoration-none" href="index.html">
             <span class="brand-mark" aria-hidden="true">
-              <img src="assets/img/logo-square.png" alt="">
+              <img src="assets/img/logo-square.svg" alt="">
             </span>
             <span>
               WCNH2027
@@ -21,14 +21,24 @@ const renderSiteChrome = () => {
           <div class="collapse navbar-collapse" id="siteNav">
             <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
               <li class="nav-item"><a class="nav-link" href="index.html" data-nav-link>Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="#" data-nav-link>Programme</a></li>
+              <li class="nav-item"><a class="nav-link" href="#" data-nav-link>Registration</a></li>
+              <li class="nav-item"><a class="nav-link" href="#" data-nav-link>Symposia</a></li>
+              <li class="nav-item"><a class="nav-link" href="#" data-nav-link>Abstracts</a></li>
+              <li class="nav-item"><a class="nav-link" href="#" data-nav-link>Awards</a></li>
+              <li class="nav-item"><a class="nav-link" href="#" data-nav-link>Sponsorships</a></li>
+              <!-- 
+              PLACEHOLDER LINKS - UPDATE TO FINAL DESTINATIONS
               <li class="nav-item"><a class="nav-link" href="programme.html" data-nav-link>Programme</a></li>
               <li class="nav-item"><a class="nav-link" href="registration.html" data-nav-link>Registration</a></li>
               <li class="nav-item"><a class="nav-link" href="symposia.html" data-nav-link>Symposia</a></li>
               <li class="nav-item"><a class="nav-link" href="abstracts.html" data-nav-link>Abstracts</a></li>
               <li class="nav-item"><a class="nav-link" href="awards.html" data-nav-link>Awards</a></li>
               <li class="nav-item"><a class="nav-link" href="sponsorships.html" data-nav-link>Sponsorships</a></li>
+              -->
             </ul>
-            <a class="btn btn-primary ms-lg-3 mt-3 mt-lg-0" href="registration.html#register">Register</a>
+            <!-- <a class="btn btn-primary ms-lg-3 mt-3 mt-lg-0" href="registration.html#register">Register</a>-->
+            <a class="btn btn-primary ms-lg-3 mt-3 mt-lg-0" href="#">Register</a>
           </div>
         </div>
       </nav>
