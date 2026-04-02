@@ -18,28 +18,19 @@ const renderSiteChrome = () => {
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNav" aria-controls="siteNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+          <!-- Note: This will be enabled once the full site is built out with all pages, to avoid confusion during development with multiple navbars visible
           <div class="collapse navbar-collapse" id="siteNav">
             <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
-              <li class="nav-item"><a class="nav-link" href="index.html" data-nav-link>Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="#" data-nav-link>Programme</a></li>
-              <li class="nav-item"><a class="nav-link" href="#" data-nav-link>Registration</a></li>
-              <li class="nav-item"><a class="nav-link" href="#" data-nav-link>Symposia</a></li>
-              <li class="nav-item"><a class="nav-link" href="#" data-nav-link>Abstracts</a></li>
-              <li class="nav-item"><a class="nav-link" href="#" data-nav-link>Awards</a></li>
-              <li class="nav-item"><a class="nav-link" href="#" data-nav-link>Sponsorships</a></li>
-              <!-- 
-              PLACEHOLDER LINKS - UPDATE TO FINAL DESTINATIONS
               <li class="nav-item"><a class="nav-link" href="programme.html" data-nav-link>Programme</a></li>
               <li class="nav-item"><a class="nav-link" href="registration.html" data-nav-link>Registration</a></li>
               <li class="nav-item"><a class="nav-link" href="symposia.html" data-nav-link>Symposia</a></li>
               <li class="nav-item"><a class="nav-link" href="abstracts.html" data-nav-link>Abstracts</a></li>
               <li class="nav-item"><a class="nav-link" href="awards.html" data-nav-link>Awards</a></li>
               <li class="nav-item"><a class="nav-link" href="sponsorships.html" data-nav-link>Sponsorships</a></li>
-              -->
             </ul>
-            <!-- <a class="btn btn-primary ms-lg-3 mt-3 mt-lg-0" href="registration.html#register">Register</a>-->
-            <a class="btn btn-primary ms-lg-3 mt-3 mt-lg-0" href="#">Register</a>
+            <a class="btn btn-primary ms-lg-3 mt-3 mt-lg-0" href="registration.html#register">Register</a>
           </div>
+          -->
         </div>
       </nav>
     `;
@@ -49,6 +40,7 @@ const renderSiteChrome = () => {
     footerMount.innerHTML = `
       <footer class="site-footer pt-5 pb-4">
         <div class="container">
+        <!-- PLACEHOLDER
           <div class="footer-sponsor-strip mb-5">
             <div class="placeholder-box placeholder-logo small-sponsor" role="img" aria-label="Footer sponsor placeholder">Sponsor</div>
             <div class="placeholder-box placeholder-logo small-sponsor" role="img" aria-label="Footer sponsor placeholder">Sponsor</div>
@@ -57,7 +49,6 @@ const renderSiteChrome = () => {
           </div>
           <div class="row g-4">
             <div class="col-lg-4">
-              <!-- PLACEHOLDER -->
               <h2 class="h4 mb-3">Contact</h2>
               <p>WCNH2027 Conference Secretariat<br>University of Cambridge [Placeholder Office]<br>Cambridge, United Kingdom</p>
               <p class="mb-0"><a href="mailto:hello@wcnh2027.org">hello@wcnh2027.org</a></p>
@@ -81,8 +72,9 @@ const renderSiteChrome = () => {
               </ul>
             </div>
           </div>
+          -->
           <div class="footer-bottom mt-5 pt-4">
-            <p class="mb-0 small">Copyright &copy; <span data-current-year></span> WCNH2027. Placeholder conference website scaffold for final content.</p>
+            <p class="mb-0 small">Copyright &copy; <span data-current-year></span> WCNH2027. Conference website for World Congress on Neurohypophyseal Hormones.</p>
           </div>
         </div>
       </footer>
