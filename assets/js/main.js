@@ -7,9 +7,6 @@ const renderSiteChrome = () => {
       <nav class="navbar navbar-expand-lg sticky-top site-navbar" aria-label="Primary">
         <div class="container">
           <a class="navbar-brand d-inline-flex align-items-center text-decoration-none" href="index.html">
-            <span class="brand-mark" aria-hidden="true">
-              <img src="assets/img/logo-square.svg" alt="">
-            </span>
             <span>
               WCNH2027
               <small>Conference Website</small>
