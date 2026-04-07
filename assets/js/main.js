@@ -71,7 +71,7 @@ const renderSiteChrome = () => {
           </div>
           -->
           <div class="footer-bottom mt-5 pt-4">
-            <p class="mb-0 small">Copyright &copy; <span data-current-year></span> WCNH2027. Conference website for World Congress on Neurohypophyseal Hormones.</p>
+            <p class="mb-0 small">Copyright &copy; <span data-current-year></span> WCNH2027. Conference website for World Congress on Neurohypophysial Hormones.</p>
           </div>
         </div>
       </footer>
