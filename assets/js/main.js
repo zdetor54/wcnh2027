@@ -37,41 +37,30 @@ const renderSiteChrome = () => {
     footerMount.innerHTML = `
       <footer class="site-footer pt-5 pb-4">
         <div class="container">
-        <!-- PLACEHOLDER
-          <div class="footer-sponsor-strip mb-5">
-            <div class="placeholder-box placeholder-logo small-sponsor" role="img" aria-label="Footer sponsor placeholder">Sponsor</div>
-            <div class="placeholder-box placeholder-logo small-sponsor" role="img" aria-label="Footer sponsor placeholder">Sponsor</div>
-            <div class="placeholder-box placeholder-logo small-sponsor" role="img" aria-label="Footer sponsor placeholder">Sponsor</div>
-            <div class="placeholder-box placeholder-logo small-sponsor" role="img" aria-label="Footer sponsor placeholder">Sponsor</div>
-          </div>
-          <div class="row g-4">
-            <div class="col-lg-4">
-              <h2 class="h4 mb-3">Contact</h2>
-              <p>WCNH2027 Conference Secretariat<br>University of Cambridge [Placeholder Office]<br>Cambridge, United Kingdom</p>
-              <p class="mb-0"><a href="mailto:hello@wcnh2027.org">hello@wcnh2027.org</a></p>
-            </div>
-            <div class="col-lg-4">
-              <h2 class="h4 mb-3">Quick Links</h2>
-              <ul class="footer-list">
-                <li><a href="programme.html">Scientific Programme</a></li>
-                <li><a href="registration.html">Registration, Venue &amp; Travel</a></li>
-                <li><a href="symposia.html">Symposia Proposals</a></li>
-                <li><a href="sponsorships.html">Sponsorship Opportunities</a></li>
-              </ul>
-            </div>
-            <div class="col-lg-4">
-              <h2 class="h4 mb-3">Social</h2>
-              <ul class="footer-list">
-                <li><a href="#"><i class="bi bi-linkedin me-2"></i>LinkedIn</a></li>
-                <li><a href="#"><i class="bi bi-twitter-x me-2"></i>X / Twitter</a></li>
-                <li><a href="#"><i class="bi bi-instagram me-2"></i>Instagram</a></li>
-                <li><a href="#"><i class="bi bi-youtube me-2"></i>YouTube</a></li>
-              </ul>
+          <div class="row justify-content-center">
+            <div class="col-xl-10">
+              <div class="d-flex flex-column flex-md-row align-items-center justify-content-center text-center text-md-start gap-4">
+                <img
+                  src="assets/img/logo-square.svg"
+                  alt="WCNH 2027 logo"
+                  width="160"
+                  height="160"
+                  style="width: 160px; height: auto;"
+                >
+                <div class="d-flex flex-column align-items-center text-center gap-2">
+                  <p class="mb-0">World Congress on Neurohypophysial Hormones (WCNH) 2027</p>
+                  <p class="mb-0"><a href="mailto:info@wcnh2027.com">info@wcnh2027.com</a></p>
+                  <p class="mb-0 small">
+                    <a href="index.html">Home</a> |
+                    <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a> |
+                    <a href="mailto:info@wcnh2027.com">Contact Us</a>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-          -->
-          <div class="footer-bottom mt-5 pt-4">
-            <p class="mb-0 small">Copyright &copy; <span data-current-year></span> WCNH2027. Conference website for World Congress on Neurohypophysial Hormones.</p>
+          <div class="footer-bottom mt-4 pt-4 text-center">
+            <p class="mb-0 small">&copy;<span data-current-year></span> Website by the WCNH 2027 Organizing Committee. All rights reserved.</p>
           </div>
         </div>
       </footer>
