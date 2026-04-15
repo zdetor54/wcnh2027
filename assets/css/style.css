@@ -1031,6 +1031,13 @@ a:focus {
   .table-card {
     padding: 1rem;
   }
+
+  .programme-badge {
+    white-space: normal;
+    border-radius: 1rem;
+    display: inline-block;
+    line-height: 1.45;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
