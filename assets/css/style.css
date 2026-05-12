@@ -476,6 +476,15 @@ a:focus {
   min-height: 16rem;
 }
 
+.organiser-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 1rem;
+  object-fit: cover;
+  object-position: center top;
+}
+
 .placeholder-box.placeholder-scenic {
   min-height: 13rem;
   background:
