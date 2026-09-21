@@ -1,0 +1,146 @@
+/* Loaded only by registration.html. */
+.registration-panel {
+  min-width: 0;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid var(--color-border);
+  border-radius: 1.25rem;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.registration-panel > legend {
+  /* Keep the legend inside the card instead of cutting through its top border. */
+  float: left;
+  width: 100%;
+  padding: 0;
+  font-family: var(--font-display);
+  color: var(--color-deep);
+}
+
+.registration-panel > legend + * {
+  clear: both;
+}
+
+.registration-choice {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1rem;
+  margin-top: 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  cursor: pointer;
+}
+
+.registration-choice:has(input:checked) {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+
+.registration-choice:focus-within {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.registration-choice input {
+  flex-shrink: 0;
+  margin-top: 0;
+}
+
+.registration-choice small {
+  display: block;
+  font-size: 0.8rem;
+}
+
+.registration-price {
+  margin-left: auto;
+  white-space: nowrap;
+  font-weight: 600;
+  color: var(--color-deep);
+}
+
+.registration-total-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  border-top: 1px solid var(--color-border);
+  padding-top: 1rem;
+  color: var(--color-deep);
+  font-weight: 600;
+}
+
+#registration-total {
+  font-size: 1.85rem;
+  font-variant-numeric: tabular-nums;
+}
+
+#registration-breakdown li + li {
+  margin-top: 0.65rem;
+}
+
+.registration-addons-grid {
+  display: grid;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.registration-addon-group {
+  min-width: 0;
+}
+
+.registration-venue-figure {
+  width: 100%;
+}
+
+.registration-venue-image {
+  height: clamp(10rem, 16vw, 12rem);
+  object-fit: cover;
+  object-position: center 40%;
+  filter: none;
+}
+
+.registration-venue-caption {
+  position: absolute;
+  inset: 0 0 auto;
+  padding: 0.75rem 0.75rem 2rem;
+  text-align: left;
+  background: linear-gradient(rgba(21, 51, 59, 0.55), transparent);
+}
+
+.registration-venue-caption .btn {
+  max-width: 100%;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.85rem;
+}
+
+.registration-venue-caption .btn:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+.registration-addon-group > legend {
+  float: none;
+  font-family: var(--font-display);
+  color: var(--color-deep);
+}
+
+@media (min-width: 1200px) {
+  .registration-addons-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 992px) {
+  .registration-summary {
+    position: sticky;
+    top: 7rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .registration-choice {
+    flex-wrap: wrap;
+  }
+}

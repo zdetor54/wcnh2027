@@ -1,0 +1,11 @@
+name = "wcnh2027-registration"
+main = "src/index.js"
+compatibility_date = "2026-09-19"
+workers_dev = true
+
+[vars]
+ALLOWED_ORIGIN = "https://zdetor54.github.io"
+REGISTRATION_URL = "https://zdetor54.github.io/wcnh2027/registration.html"
+
+# STRIPE_SECRET_KEY is a secret, never a [vars] entry.
+# From this directory: wrangler secret put STRIPE_SECRET_KEY
