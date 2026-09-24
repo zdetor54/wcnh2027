@@ -18,6 +18,7 @@ const renderSiteChrome = () => {
           <div class="collapse navbar-collapse" id="siteNav">
             <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
               <li class="nav-item"><a class="nav-link" href="programme.html" data-nav-link>Programme</a></li>
+              <li class="nav-item"><a class="nav-link" href="speakers.html" data-nav-link>Speakers</a></li>
               <!--
               <li class="nav-item"><a class="nav-link" href="registration.html" data-nav-link>Registration</a></li>
               <li class="nav-item"><a class="nav-link" href="symposia.html" data-nav-link>Symposia</a></li>

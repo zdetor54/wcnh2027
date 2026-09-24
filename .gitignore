@@ -1,6 +1,14 @@
 *.html
 !index.html
 !programme.html
+!registration.html
+!speakers.html
+
+# Local Worker credentials and generated tooling files
+.dev.vars*
+.env*
+.wrangler/
+node_modules/
 
 .DS_Store
 **/.DS_Store
