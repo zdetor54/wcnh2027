@@ -38,6 +38,11 @@
             <div class="col-lg-8">
               <fieldset class="registration-panel mb-4" id="tier-options">
                 <legend class="h4">1. Choose your registration</legend>
+                <label class="registration-choice" for="tier-student">
+                  <input class="form-check-input" id="tier-student" type="radio" name="tierId" value="student" required>
+                  <span><strong>Student</strong><small>Postdoc / PhD students / Research assistants</small></span>
+                  <span class="registration-price" data-price-id="student">€560.00</span>
+                </label>
                 <label class="registration-choice" for="tier-faculty">
                   <input class="form-check-input" id="tier-faculty" type="radio" name="tierId" value="faculty" required>
                   <span><strong>Faculty</strong><small>Academic / Clinical</small></span>
@@ -48,11 +53,7 @@
                   <span><strong>Industry</strong><small>Industry professionals</small></span>
                   <span class="registration-price" data-price-id="industry">€990.00</span>
                 </label>
-                <label class="registration-choice" for="tier-student">
-                  <input class="form-check-input" id="tier-student" type="radio" name="tierId" value="student" required>
-                  <span><strong>Student</strong><small>Postdoc / PhD students / Research assistants</small></span>
-                  <span class="registration-price" data-price-id="student">€560.00</span>
-                </label>
+                
               </fieldset>
               <fieldset class="registration-panel" id="addon-options" aria-describedby="addon-guidance">
                 <legend class="h4">2. Conference add-ons</legend>
@@ -66,7 +67,7 @@
                       <span class="registration-price" data-price-id="gala_dinner">€50.00</span>
                     </label>
                     <figure class="scenic-figure registration-venue-figure mt-3">
-                      <img class="scenic-image registration-venue-image" src="assets/img/ktima-pavlaki-venue.jpg" alt="Tables set for dinner beneath trees overlooking the sea at Ktima Pavlaki" width="1368" height="1824" loading="lazy">
+                      <img class="scenic-image registration-venue-image" src="assets/img/ktima-pavlaki.jpeg" alt="Tables set for dinner beneath trees overlooking the sea at Ktima Pavlaki" width="1368" height="1824" loading="lazy">
                       <figcaption class="registration-venue-caption">
                         <a class="btn btn-light" href="https://www.facebook.com/ktimapavlakirethymno" target="_blank" rel="noopener noreferrer">Discover Ktima Pavlaki<span class="visually-hidden"> (opens in a new tab)</span></a>
                       </figcaption>
@@ -117,6 +118,6 @@
   <div data-site-footer></div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
-  <script src="assets/js/registration.js"></script>
+  <script src="assets/js/registration.js?v=checkout-preview-2"></script>
 </body>
 </html>
