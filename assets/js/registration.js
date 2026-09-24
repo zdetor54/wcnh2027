@@ -1,6 +1,8 @@
 (() => {
   // Set this to the deployed Worker URL; use http://localhost:8787 for local testing.
   const CHECKOUT_ENDPOINT = "https://REPLACE_WITH_YOUR_WORKER.workers.dev/create-checkout-session";
+  const previewMode = CHECKOUT_ENDPOINT.includes("REPLACE_WITH_YOUR_WORKER")
+    || new URLSearchParams(window.location.search).get("preview") === "1";
 
   // Display estimates only. The Worker independently validates IDs and sets prices.
   // Update this table and the static price labels in January 2027 along with the Worker.
@@ -23,6 +25,11 @@
   const returnNotice = document.getElementById("checkout-return");
   const fieldsets = [document.getElementById("tier-options"), document.getElementById("addon-options")];
   let pending = false;
+  if (previewMode) {
+    submit.textContent = "Preview checkout request";
+    returnNotice.hidden = false;
+    returnNotice.textContent = "Preview mode: submitting shows the API and Stripe request bodies. No checkout request or payment will be made.";
+  }
 
   const selections = () => {
     const tierId = form.querySelector('[name="tierId"]:checked')?.value || "";
@@ -83,13 +90,45 @@
     event.preventDefault();
     if (pending || !form.reportValidity()) return;
     error.hidden = true;
+    const payload = selections();
+    if (previewMode) {
+      try {
+        const { buildCheckout } = await import("../../src/index.js");
+        const registrationUrl = new URL(window.location.href);
+        registrationUrl.search = "";
+        registrationUrl.hash = "";
+        const stripeBody = buildCheckout(payload, registrationUrl.href);
+        let preview = document.getElementById("checkout-preview");
+        if (!preview) {
+          preview = document.createElement("pre");
+          preview.id = "checkout-preview";
+          preview.className = "registration-panel mt-4";
+          preview.tabIndex = -1;
+          form.after(preview);
+        }
+        preview.textContent = "Browser → Worker (POST JSON)\n"
+          + JSON.stringify(payload, null, 2)
+          + "\n\nWorker → Stripe (POST https://api.stripe.com/v1/checkout/sessions)\n"
+          + "Content-Type: application/x-www-form-urlencoded\n"
+          + "Decoded request body:\n"
+          + JSON.stringify(Object.fromEntries(stripeBody), null, 2)
+          + "\n\nEncoded request body:\n" + stripeBody.toString()
+          + "\n\nReturn URLs above use this page's address. Deployed checkout uses the Worker's REGISTRATION_URL. No secret key is loaded or displayed.";
+        preview.focus();
+        preview.scrollIntoView({ block: "center", behavior: "instant" });
+      } catch {
+        error.textContent = "Could not load the checkout preview. Serve the site over HTTP (for example, python -m http.server 8000 --bind 127.0.0.1), then open http://localhost:8000/registration.html?preview=1.";
+        error.hidden = false;
+        error.focus();
+      }
+      return;
+    }
     if (CHECKOUT_ENDPOINT.includes("REPLACE_WITH_YOUR_WORKER")) {
       error.textContent = "Online payment is not available yet. Please contact info@wcnh2027.com for assistance.";
       error.hidden = false;
       error.focus();
       return;
     }
-    const payload = selections();
     pending = true;
     submit.disabled = true;
     fieldsets.forEach((fieldset) => { fieldset.disabled = true; });

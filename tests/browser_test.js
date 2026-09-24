@@ -75,7 +75,9 @@ Deno.test({
         }
       }
       await page.locator("#checkout-submit").click();
-      assert.match(await page.locator("#checkout-error").textContent(), /not available yet/);
+      await page.locator("#checkout-preview").waitFor({ state: "visible" });
+      assert.match(await page.locator("#checkout-preview").textContent(), /56000/);
+      assert.match(await page.locator("#checkout-preview").textContent(), /line_items%5B0%5D/);
       assert.equal(requests, 0);
 
       configured = true;

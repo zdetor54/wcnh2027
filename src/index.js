@@ -1,8 +1,8 @@
 // Authoritative early-bird prices, in euro cents. Update manually in January 2027.
 const TIERS = Object.freeze({
-  faculty: { name: "WCNH 2027 — Faculty (Academic / Clinical)", amount: 71000 },
+  faculty: { name: "WCNH 2027 — Faculty", amount: 71000 },
   industry: { name: "WCNH 2027 — Industry", amount: 99000 },
-  student: { name: "WCNH 2027 — Student / Postdoc / PhD / Research assistant", amount: 56000 },
+  student: { name: "WCNH 2027 — Student", amount: 56000 },
 });
 const GALA_PRICE = 5000;
 const TRANSFER_PRICE = 2700;
@@ -22,38 +22,25 @@ function validateSelections(value) {
   return value;
 }
 
-function buildCheckout(selections, registrationUrl) {
+export function buildCheckout(selections, registrationUrl) {
   const { tierId, addonIds } = selections;
   const tier = TIERS[tierId];
   const items = [{ ...tier, quantity: 1 }];
   if (addonIds.includes("gala_dinner")) {
-    items.push({ name: "Gala dinner — registered attendee only", amount: GALA_PRICE, quantity: 1 });
+    items.push({ name: "Gala dinner", amount: GALA_PRICE, quantity: 1 });
   }
   const trips = addonIds.includes("hotel_transfer_return") ? 2
     : addonIds.includes("hotel_transfer_one_way") ? 1 : 0;
   if (trips) {
-    items.push({ name: "Transfer to hotel — registered attendee, per trip", amount: TRANSFER_PRICE, quantity: trips });
+    items.push({ name: "Transfer to hotel, per trip", amount: TRANSFER_PRICE, quantity: trips });
   }
 
-  const total = items.reduce((sum, item) => sum + item.amount * item.quantity, 0);
   const successUrl = new URL(registrationUrl);
-  const cancelUrl = new URL(registrationUrl);
   successUrl.searchParams.set("checkout", "success");
-  cancelUrl.searchParams.set("checkout", "cancelled");
   const params = new URLSearchParams({
     mode: "payment",
-    ui_mode: "hosted",
-    "payment_method_types[0]": "card",
-    billing_address_collection: "required",
     success_url: successUrl.href,
-    cancel_url: cancelUrl.href,
   });
-  // No surcharge: the disclosed processing percentage does not change the charge.
-  const metadata = { tier_id: tierId, addon_ids: [...addonIds].sort().join(","), total_cents: String(total) };
-  for (const [key, value] of Object.entries(metadata)) {
-    params.set(`metadata[${key}]`, value);
-    params.set(`payment_intent_data[metadata][${key}]`, value);
-  }
   items.forEach((item, index) => {
     params.set(`line_items[${index}][price_data][currency]`, "eur");
     params.set(`line_items[${index}][price_data][unit_amount]`, String(item.amount));

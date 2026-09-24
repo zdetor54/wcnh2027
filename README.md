@@ -21,7 +21,15 @@ Replace `[FEE_PERCENTAGE]` in `registration.html` before launch. This notice is 
 
 The price table in `src/index.js` is authoritative. The browser table in `assets/js/registration.js` is for display only. No monetary values are accepted from the browser. Stripe products or Price IDs do not need to be created beforehand.
 
-### API
+### Inspect checkout without a Stripe account
+
+While `CHECKOUT_ENDPOINT` still contains its placeholder, the normal registration page automatically uses preview mode. Once an endpoint is configured, use `?preview=1` to explicitly enable preview mode.
+
+Serve the repository with `python -m http.server 8000 --bind 127.0.0.1`, then open `http://localhost:8000/registration.html?preview=1`. Choose a tier and add-ons and click **Preview checkout request**. The page shows the browser JSON and the decoded and encoded Stripe request body, using the Worker's actual payload builder. No API request is sent, no secret key is needed, and no checkout session is created. Preview return URLs use the current page address; deployed checkout uses `REGISTRATION_URL`. Module loading requires HTTP rather than opening the HTML as a local file. Once the endpoint is configured, remove `?preview=1` to restore normal checkout.
+
+The Stripe request contains only `mode`, `success_url`, and each line item's currency, amount, name and quantity. No metadata, cancellation URL, payment-method restriction or billing-address override is sent.
+
+### API request
 
 `POST /create-checkout-session`, with `Content-Type: application/json`:
 
@@ -41,7 +49,7 @@ Dependency-free tests use Deno and mock Stripe, so no cards are charged:
 deno test tests/worker_test.js
 ```
 
-The tests cover all 18 price combinations, Stripe amounts and quantities, metadata, input validation, CORS, missing secrets, and upstream errors. Complete a real Stripe test-mode checkout before launch as described below.
+The tests cover all 18 price combinations, Stripe amounts and quantities, minimal request fields, input validation, CORS, missing secrets, and upstream errors. Complete a real Stripe test-mode checkout before launch as described below.
 
 Optional Chrome checks use Playwright downloaded into Deno’s cache, curl for Bootstrap assets, and mocked checkout responses:
 
@@ -69,7 +77,7 @@ These check all displayed totals, the submitted IDs, error recovery, duplicate-s
    REGISTRATION_URL = "https://zdetor54.github.io/wcnh2027/registration.html"
    ```
 
-   If Pages uses a custom domain, update both values. The origin has no path; the registration URL includes the repository path. Success and cancellation return to that page with `?checkout=success` or `?checkout=cancelled`. Change the Worker name if necessary.
+   If Pages uses a custom domain, update both values. The origin has no path; the registration URL includes the repository path. Successful checkout returns to that page with `?checkout=success`. No cancellation URL is sent. Change the Worker name if necessary.
 
 3. **Set the test secret.** Obtain a Stripe test-mode secret key and enter it at the CLI prompt:
 
@@ -93,9 +101,9 @@ These check all displayed totals, the submitted IDs, error recovery, duplicate-s
 
    Temporarily set `CHECKOUT_ENDPOINT` in `assets/js/registration.js` to `http://localhost:8787/create-checkout-session`. Open `http://localhost:8000/registration.html` (use exactly `localhost`, not a file URL). This local server can serve files in the repository including local configuration; bind it only to loopback and close it after testing.
 
-5. **Verify payment in test mode.** Try all selections. Faculty + gala + return is €814; Student alone is €560; Industry + gala + return is €1,094. Stripe must show the same line items and total, without an added percentage. Test cancellation and retry, then a completed payment using `4242 4242 4242 4242`, a future expiry, and a valid-format CVC. Inspect the completed payment and selection metadata in Stripe. See [Stripe testing](https://docs.stripe.com/testing).
+5. **Verify payment in test mode.** Try all selections. Faculty + gala + return is €814; Student alone is €560; Industry + gala + return is €1,094. Stripe must show the same line items and total, without an added percentage. Test browser back navigation and retry, then a completed payment using `4242 4242 4242 4242`, a future expiry, and a valid-format CVC. Inspect the completed payment and purchased line items in Stripe. See [Stripe testing](https://docs.stripe.com/testing).
 
-   Checkout collects email and billing details. There is no attendee database or conference confirmation email implementation. Enable Stripe payment receipts in the Dashboard if desired. Confirm paid registrations in Stripe; the static return page is not proof of payment. Automated registration fulfilment requires a separate verified webhook integration. See [Stripe fulfilment](https://docs.stripe.com/checkout/fulfillment).
+   Checkout collects email; billing address collection and available payment methods use Stripe defaults and account settings. There is no attendee database or conference confirmation email implementation. Enable Stripe payment receipts in the Dashboard if desired. Confirm paid registrations in Stripe; the static return page is not proof of payment. Automated registration fulfilment requires a separate verified webhook integration. See [Stripe fulfilment](https://docs.stripe.com/checkout/fulfillment).
 
 6. **Deploy the Worker with the test key first.**
 

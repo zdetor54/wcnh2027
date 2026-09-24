@@ -1,4 +1,11 @@
 /* Loaded only by registration.html. */
+#checkout-preview {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 65vh;
+  overflow-y: auto;
+}
+
 .registration-panel {
   min-width: 0;
   padding: clamp(1.25rem, 3vw, 2rem);
@@ -97,7 +104,7 @@
 .registration-venue-image {
   height: clamp(10rem, 16vw, 12rem);
   object-fit: cover;
-  object-position: center 40%;
+  object-position: center 65%;
   filter: none;
 }
 

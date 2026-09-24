@@ -31,14 +31,10 @@ Deno.test("all 18 combinations charge server prices, with EUR line items and no 
             assert.equal(options.headers.Authorization, `Bearer ${env.STRIPE_SECRET_KEY}`);
             const params = options.body;
             assert.equal(params.get("mode"), "payment");
-            assert.equal(params.get("metadata[tier_id]"), tierId);
-            assert.equal(params.get("metadata[addon_ids]"), [...addonIds].sort().join(","));
-            const expected = base + (gala ? 5000 : 0) + trips * 2700;
-            assert.equal(Number(params.get("metadata[total_cents]")), expected);
-            assert.equal(Number(params.get("payment_intent_data[metadata][total_cents]")), expected);
             assert.equal(params.get("success_url"), `${env.REGISTRATION_URL}?checkout=success`);
-            assert.equal(params.get("cancel_url"), `${env.REGISTRATION_URL}?checkout=cancelled`);
             const amounts = [[base, 1], ...(gala ? [[5000, 1]] : []), ...(trips ? [[2700, trips]] : [])];
+            // Only mode, success URL and four required fields per line item.
+            assert.equal([...params.keys()].length, 2 + amounts.length * 4);
             amounts.forEach(([amount, quantity], index) => {
               assert.equal(params.get(`line_items[${index}][price_data][currency]`), "eur");
               assert.equal(Number(params.get(`line_items[${index}][price_data][unit_amount]`)), amount);
