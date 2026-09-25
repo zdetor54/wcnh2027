@@ -6,28 +6,6 @@
   overflow-y: auto;
 }
 
-.registration-panel {
-  min-width: 0;
-  padding: clamp(1.25rem, 3vw, 2rem);
-  border: 1px solid var(--color-border);
-  border-radius: 1.25rem;
-  background: var(--color-surface);
-  box-shadow: var(--shadow-soft);
-}
-
-.registration-panel > legend {
-  /* Keep the legend inside the card instead of cutting through its top border. */
-  float: left;
-  width: 100%;
-  padding: 0;
-  font-family: var(--font-display);
-  color: var(--color-deep);
-}
-
-.registration-panel > legend + * {
-  clear: both;
-}
-
 .registration-choice {
   display: flex;
   align-items: center;
@@ -103,7 +81,6 @@
 
 .registration-venue-image {
   height: clamp(10rem, 16vw, 12rem);
-  object-fit: cover;
   object-position: center 65%;
   filter: none;
 }
@@ -116,21 +93,8 @@
   background: linear-gradient(rgba(21, 51, 59, 0.55), transparent);
 }
 
-.registration-venue-caption .btn {
-  max-width: 100%;
-  padding: 0.6rem 0.9rem;
-  font-size: 0.85rem;
-}
-
-.registration-venue-caption .btn:focus-visible {
-  outline: 3px solid #fff;
-  outline-offset: 3px;
-}
-
 .registration-addon-group > legend {
   float: none;
-  font-family: var(--font-display);
-  color: var(--color-deep);
 }
 
 @media (min-width: 1200px) {

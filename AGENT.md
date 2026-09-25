@@ -113,3 +113,12 @@ Static multi-page conference website for WCNH (academic/scientific conference). 
 - Do not hardcode absolute paths — all links must be relative for GitHub Pages
 - Do not create a single-page app — each page is a separate HTML file
 - Do not over-engineer — this is a content site with embedded forms, not a web application
+## CSS ownership and reuse
+
+- Inspect `assets/css/style.css` and existing Bootstrap utilities before adding CSS.
+- Keep reusable surfaces, typography, spacing and button states in `style.css`. Use `content-panel` for panels, `panel-title` for panel headings/legends, and `section-title` for main content section headings.
+- Create or extend a page-specific stylesheet only for behaviour/layout exclusive to that page that is not already covered by shared styles or utilities.
+- When a page-specific style becomes shared, move it into `style.css` and update all consumers; do not copy it or override it with a second definition.
+- Preserve semantic heading levels and fieldset/legend form grouping independently of their visual size.
+
+- Content action buttons use shared `.btn` sizing (label plus padding, minimum 44px height), left alignment, and 1.5rem spacing above their action area. Do not add full-width, fixed-width, or right/centre alignment overrides without an explicit request. Keep the gala venue action positioned at the top left of its image; navigation toggles and dialog close controls retain their functional positions.
