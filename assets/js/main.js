@@ -22,7 +22,6 @@ const renderSiteChrome = () => {
               <li class="nav-item"><a class="nav-link" href="programme.html" data-nav-link>Programme</a></li>
               <li class="nav-item"><a class="nav-link" href="speakers.html" data-nav-link>Speakers</a></li>
               <li class="nav-item"><a class="nav-link" href="abstracts.html" data-nav-link>Abstracts</a></li>
-              <li class="nav-item"><a class="nav-link" href="registration.html" data-nav-link>Registration</a></li>
               <li class="nav-item"><a class="nav-link" href="accommodation.html" data-nav-link>Accommodation</a></li>
               <!--
               <li class="nav-item"><a class="nav-link" href="symposia.html" data-nav-link>Symposia</a></li>
@@ -30,9 +29,6 @@ const renderSiteChrome = () => {
               <li class="nav-item"><a class="nav-link" href="sponsorships.html" data-nav-link>Sponsorships</a></li>
               -->
             </ul>
-            <!--
-            <a class="btn btn-primary ms-lg-3 mt-3 mt-lg-0" href="registration.html#register">Register</a>
-            -->
           </div>
         </div>
       </nav>
