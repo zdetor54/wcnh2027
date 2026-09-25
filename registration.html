@@ -19,6 +19,7 @@
   <main id="main-content">
     <header class="page-hero">
       <div class="container">
+        <img class="page-hero-mark" src="assets/img/logo-square.svg" alt="" aria-hidden="true" width="640" height="750">
         <p class="eyebrow">23–27 May 2027 · Rethymno, Crete</p>
         <h1 class="display-4 mb-3">Conference registration</h1>
         <p class="lead-copy mb-0">Join us at the 15th World Congress on Neurohypophysial Hormones.</p>
@@ -27,17 +28,17 @@
     <section class="section-space">
       <div class="container">
         <div id="checkout-return" class="alert alert-info" role="status" tabindex="-1" hidden></div>
-        <noscript><p class="alert alert-warning">Please enable JavaScript to calculate your total and continue to payment, or contact <a href="mailto:info@wcnh2027.com">info@wcnh2027.com</a> for help.</p></noscript>
+        <noscript><p class="alert alert-warning">Please enable JavaScript to calculate your total and continue to payment, or contact <a href="mailto:wcnh2027@gmail.com">wcnh2027@gmail.com</a> for help.</p></noscript>
         <div class="section-heading">
           <span class="section-kicker">Early-bird registration</span>
-          <h2 class="h3 mb-3">Your place at WCNH 2027</h2>
+          <h2 class="section-title">Your place at WCNH 2027</h2>
           <p>Early-bird rates until 15 January 2027. All prices cover one registered attendee.</p>
         </div>
         <form id="registration-form">
           <div class="row g-4 align-items-start">
             <div class="col-lg-8">
-              <fieldset class="registration-panel mb-4" id="tier-options">
-                <legend class="h4">1. Choose your registration</legend>
+              <fieldset class="content-panel mb-4" id="tier-options">
+                <legend class="panel-title">1. Choose your registration</legend>
                 <label class="registration-choice" for="tier-student">
                   <input class="form-check-input" id="tier-student" type="radio" name="tierId" value="student" required>
                   <span><strong>Student</strong><small>Postdoc / PhD students / Research assistants</small></span>
@@ -55,8 +56,8 @@
                 </label>
                 
               </fieldset>
-              <fieldset class="registration-panel" id="addon-options" aria-describedby="addon-guidance">
-                <legend class="h4">2. Conference add-ons</legend>
+              <fieldset class="content-panel" id="addon-options" aria-describedby="addon-guidance">
+                <legend class="panel-title">2. Conference add-ons</legend>
                 <p id="addon-guidance">Choose your optional add-ons now. They are purchased together with registration and form part of your total. All add-on prices are for the registered attendee only; add-ons are not sold separately on this page.</p>
                 <div class="registration-addons-grid">
                   <fieldset class="registration-addon-group">
@@ -92,12 +93,12 @@
                     <p class="small mt-2">€27 per person, per trip between the hotel and the airport or port, for arrival and departure. Select trips for the registered attendee only.</p>
                   </fieldset>
                 </div>
-                <p class="small mt-4 mb-0">Already registered, or need to arrange an add-on separately? Please email <a href="mailto:info@wcnh2027.com">info@wcnh2027.com</a> for assistance. Do not purchase another registration to add a dinner or transfer.</p>
+                <p class="small mt-4 mb-0">Already registered, or need to arrange an add-on separately? Please email <a href="mailto:wcnh2027@gmail.com">wcnh2027@gmail.com</a> for assistance. Do not purchase another registration to add a dinner or transfer.</p>
               </fieldset>
             </div>
             <div class="col-lg-4">
-              <aside class="registration-panel registration-summary" aria-labelledby="summary-heading">
-                <h2 class="h4" id="summary-heading">Your registration</h2>
+              <aside class="content-panel registration-summary" aria-labelledby="summary-heading">
+                <h2 class="panel-title" id="summary-heading">Your registration</h2>
                 <ul id="registration-breakdown" class="list-unstyled small mb-4"><li>Choose a registration tier to begin.</li></ul>
                 <div class="registration-total-row" role="status" aria-live="polite" aria-atomic="true">
                   <span>Total (EUR)</span><output id="registration-total" for="tier-faculty tier-industry tier-student gala-dinner transfer-none transfer-one-way transfer-return">€0.00</output>
@@ -105,7 +106,9 @@
                 <!-- PLACEHOLDER: replace [FEE_PERCENTAGE] with the agreed rate before launch. This is informational only. -->
                 <p class="small mt-3">Payment processing fee: [FEE_PERCENTAGE]% (covered by the organiser). No additional fee is added to your total.</p>
                 <p id="checkout-error" class="alert alert-danger small" role="alert" tabindex="-1" hidden></p>
-                <button class="btn btn-primary w-100" type="submit" id="checkout-submit" disabled>Continue to payment</button>
+                <div class="mt-4">
+                  <button class="btn btn-primary" type="submit" id="checkout-submit" disabled>Continue to payment</button>
+                </div>
                 <p id="checkout-status" class="small mt-3 mb-0" role="status" aria-live="polite">Choose a tier, then continue to secure payment.</p>
                 <p class="small mt-2 mb-0">You will review your selections and pay on Stripe’s secure checkout page.</p>
               </aside>

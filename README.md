@@ -4,7 +4,7 @@ Static conference website on GitHub Pages, with a separate Cloudflare Worker for
 
 ## Registration
 
-One checkout buys registration for one attendee. Gala dinner and transfers can only be purchased with registration and cover that attendee only. For later add-ons, email `info@wcnh2027.com`; do not purchase another registration.
+One checkout buys registration for one attendee. Gala dinner and transfers can only be purchased with registration and cover that attendee only. For later add-ons, email `wcnh2027@gmail.com`; do not purchase another registration.
 
 | Selection | Early-bird EUR price |
 | --- | ---: |

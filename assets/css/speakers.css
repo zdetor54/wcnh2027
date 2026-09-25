@@ -1,21 +1,19 @@
-.speakers-intro { max-width: 42rem; }
 .speaker-group + .speaker-group { margin-top: 4rem; }
 .speaker-group-heading { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.75rem; }
 .speaker-group-heading::after { content: ""; flex: 1; height: 1px; background: var(--color-border); }
-.speaker-card { display: flex; flex-direction: column; height: 100%; padding: 0; overflow: hidden; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 1.5rem; box-shadow: var(--shadow-soft); }
+.speaker-card { display: flex; flex-direction: column; padding: 0; overflow: hidden; }
 .speaker-identity { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 1.5rem; padding: 1.75rem 1.75rem 0; align-items: start; }
 .speaker-photo { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 20%; border-radius: 1rem; background: var(--color-primary-soft); }
 .speaker-card .speaker-name { font-size: clamp(1.4rem, 2vw, 1.8rem); margin: 0 0 0.65rem; }
-.speaker-affiliation { color: var(--color-ink); font-size: 0.88rem; font-weight: 400; line-height: 1.65; margin: 0; }
 .speaker-content { display: flex; flex-direction: column; flex: 1; padding: 1.75rem; }
 .speaker-talk-label { display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-primary); margin-bottom: 0.65rem; }
 .speaker-talk { font-size: clamp(1.5rem, 2.2vw, 1.9rem); line-height: 1.3; margin-bottom: 1.1rem; }
 .speaker-excerpt { font-size: 0.95rem; line-height: 1.75; }
 .speaker-bio { margin-top: auto; }
-.speaker-bio summary { display: block; width: fit-content; margin-left: auto; list-style: none; box-shadow: 0 0.25rem 0.65rem rgba(14, 107, 115, 0.12); }
+.speaker-bio summary { list-style: none; }
 .speaker-bio summary::-webkit-details-marker { display: none; }
 .speaker-full-bio { padding-top: 1rem; }
-.speaker-bio summary:focus-visible, .bio-close:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 5px; border-radius: 0.25rem; }
+.bio-close:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 5px; border-radius: 0.25rem; }
 .bio-dialog-open { overflow: hidden; }
 /* The shared hero-copy-shell owns the glass background, border, shadow and blur. */
 .bio-dialog { width: min(900px, calc(100% - 2rem)); max-width: 900px; max-height: calc(100dvh - 3rem); color: #fff; overflow: hidden; }

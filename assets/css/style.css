@@ -43,10 +43,32 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+legend {
   font-family: var(--font-display);
   color: var(--color-deep);
   letter-spacing: -0.02em;
+}
+
+/* Shared visual hierarchy, independent of heading or fieldset semantics. */
+.section-title {
+  font-size: clamp(1.75rem, 2.5vw + 1rem, 2.5rem);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.panel-title {
+  font-size: clamp(1.25rem, 0.3vw + 1.2rem, 1.5rem);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1rem;
 }
 
 a {
@@ -105,6 +127,14 @@ a:focus {
   color: var(--color-deep);
 }
 
+.navbar-logo {
+  width: 41px;
+  height: 48px;
+  background-color: var(--color-deep);
+  -webkit-mask: url("../img/logo-square.svg") center / contain no-repeat;
+  mask: url("../img/logo-square.svg") center / contain no-repeat;
+}
+
 .navbar-brand small {
   display: block;
   margin-top: -0.15rem;
@@ -135,13 +165,44 @@ a:focus {
   content: "";
 }
 
+/* Content actions size to their labels and align with their surrounding text. */
 .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  justify-self: start;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 44px;
   border-radius: 999px;
+  font-size: 1rem;
   font-weight: 600;
+  line-height: 1.5;
   padding: 0.8rem 1.4rem;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
 }
 
 .btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--color-primary);
+  --bs-btn-border-color: var(--color-primary);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--color-deep);
+  --bs-btn-hover-border-color: var(--color-deep);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--color-deep);
+  --bs-btn-active-border-color: var(--color-deep);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: var(--color-primary);
+  --bs-btn-disabled-border-color: var(--color-primary);
+  --bs-btn-focus-shadow-rgb: 14, 107, 115;
   background: var(--color-primary);
   border-color: var(--color-primary);
   box-shadow: 0 0.9rem 2rem rgba(14, 107, 115, 0.22);
@@ -149,8 +210,8 @@ a:focus {
 
 .btn-primary:hover,
 .btn-primary:focus {
-  background: var(--color-secondary);
-  border-color: var(--color-secondary);
+  background: var(--color-deep);
+  border-color: var(--color-deep);
 }
 
 .btn-light {
@@ -235,6 +296,21 @@ a:focus {
 .page-hero {
   padding: 4.5rem 0 3.5rem;
   color: rgba(255, 255, 255, 0.92);
+}
+
+/* Oversized decorative flower, cropped by the hero without changing its height. */
+.page-hero-mark {
+  display: none;
+  position: absolute;
+  top: 110%;
+  right: -3rem;
+  z-index: -1;
+  transform: translateY(-50%);
+  width: auto;
+  height: clamp(24rem, 32vw, 30rem);
+  filter: brightness(0) invert(1);
+  opacity: 0.18;
+  pointer-events: none;
 }
 
 .hero-copy-shell {
@@ -324,11 +400,18 @@ a:focus {
 .teaser-panel,
 .travel-card,
 .hotel-card,
-.card-shell {
+.card-shell,
+.timeline-card,
+.committee-card,
+.speaker-card,
+.social-card,
+.tier-card,
+.sponsor-card {
+  min-width: 0;
   background: var(--color-surface);
-  border: 1px solid rgba(231, 215, 197, 0.9);
+  border: 1px solid var(--color-border);
   border-radius: 1.25rem;
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-soft);
 }
 
 .hero-panel {
@@ -451,7 +534,18 @@ a:focus {
 .content-panel,
 .submission-panel,
 .teaser-panel {
-  padding: 2rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+/* A fieldset uses the same panel and title as a section or aside. */
+.content-panel > legend {
+  float: left;
+  width: 100%;
+  padding: 0;
+}
+
+.content-panel > legend + * {
+  clear: both;
 }
 
 .placeholder-box {
@@ -640,10 +734,6 @@ a:focus {
 .timeline-card {
   height: 100%;
   padding: 1.5rem;
-  border: 1px solid var(--color-border);
-  border-radius: 1.15rem;
-  background: var(--color-surface);
-  box-shadow: var(--shadow-soft);
 }
 
 .timeline-date {
@@ -682,14 +772,9 @@ a:focus {
 .sponsor-card {
   height: 100%;
   padding: 1.35rem;
-  border: 1px solid rgba(215, 226, 230, 0.85);
-  border-radius: 1.25rem;
-  background: var(--color-surface);
-  box-shadow: var(--shadow-card);
 }
 
 .card-role,
-.speaker-affiliation,
 .social-meta,
 .tier-price,
 .sponsor-tier-label {
@@ -698,8 +783,15 @@ a:focus {
   font-weight: 700;
 }
 
+.speaker-affiliation {
+  color: var(--color-ink);
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 1.65;
+  margin: 0;
+}
+
 .committee-card h3,
-.speaker-card h3,
 .social-card h3,
 .tier-card h3,
 .sponsor-card h3 {
@@ -976,6 +1068,10 @@ a:focus {
 }
 
 @media (min-width: 992px) {
+  .page-hero-mark {
+    display: block;
+  }
+
   .conference-timeline {
     grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 1rem;
@@ -1008,10 +1104,6 @@ a:focus {
 }
 
 @media (max-width: 991.98px) {
-  .site-navbar .btn {
-    width: 100%;
-  }
-
   .hero-panel {
     margin-top: 1rem;
   }

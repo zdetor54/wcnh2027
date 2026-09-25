@@ -81,7 +81,7 @@
     returnNotice.hidden = false;
     // A query string is not proof of payment. Organisers verify payment in Stripe.
     returnNotice.textContent = outcome === "success"
-      ? "Thank you for returning from checkout. Check your payment confirmation before making another payment. If you are unsure whether payment completed, contact info@wcnh2027.com."
+      ? "Thank you for returning from checkout. Check your payment confirmation before making another payment. If you are unsure whether payment completed, contact wcnh2027@gmail.com."
       : "You returned without completing this checkout. Your selections are still available below; you can review them and try again.";
     returnNotice.focus();
   }
@@ -102,7 +102,7 @@
         if (!preview) {
           preview = document.createElement("pre");
           preview.id = "checkout-preview";
-          preview.className = "registration-panel mt-4";
+          preview.className = "content-panel mt-4";
           preview.tabIndex = -1;
           form.after(preview);
         }
@@ -124,7 +124,7 @@
       return;
     }
     if (CHECKOUT_ENDPOINT.includes("REPLACE_WITH_YOUR_WORKER")) {
-      error.textContent = "Online payment is not available yet. Please contact info@wcnh2027.com for assistance.";
+      error.textContent = "Online payment is not available yet. Please contact wcnh2027@gmail.com for assistance.";
       error.hidden = false;
       error.focus();
       return;
@@ -151,7 +151,7 @@
       if (url.protocol !== "https:" || url.hostname !== "checkout.stripe.com") throw new Error("Invalid checkout URL.");
       window.location.assign(url.href);
     } catch {
-      error.textContent = "We could not open checkout. Your selections have been kept. Please try again, or contact info@wcnh2027.com.";
+      error.textContent = "We could not open checkout. Your selections have been kept. Please try again, or contact wcnh2027@gmail.com.";
       error.hidden = false;
       error.focus();
       status.textContent = "Ready to try again.";

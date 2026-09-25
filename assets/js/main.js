@@ -7,9 +7,10 @@ const renderSiteChrome = () => {
       <nav class="navbar navbar-expand-lg sticky-top site-navbar" aria-label="Primary">
         <div class="container">
           <a class="navbar-brand d-inline-flex align-items-center text-decoration-none" href="index.html">
+            <span class="navbar-logo flex-shrink-0" aria-hidden="true"></span>
             <span>
               WCNH2027
-              <small>Conference Website</small>
+              <small>Rethymno, Crete</small>
             </span>
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNav" aria-controls="siteNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,12 +18,13 @@ const renderSiteChrome = () => {
           </button>
           <div class="collapse navbar-collapse" id="siteNav">
             <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+              <li class="nav-item"><a class="nav-link" href="index.html" data-nav-link>Home</a></li>
               <li class="nav-item"><a class="nav-link" href="programme.html" data-nav-link>Programme</a></li>
               <li class="nav-item"><a class="nav-link" href="speakers.html" data-nav-link>Speakers</a></li>
-              <!--
-              <li class="nav-item"><a class="nav-link" href="registration.html" data-nav-link>Registration</a></li>
-              <li class="nav-item"><a class="nav-link" href="symposia.html" data-nav-link>Symposia</a></li>
               <li class="nav-item"><a class="nav-link" href="abstracts.html" data-nav-link>Abstracts</a></li>
+              <li class="nav-item"><a class="nav-link" href="registration.html" data-nav-link>Registration</a></li>
+              <!--
+              <li class="nav-item"><a class="nav-link" href="symposia.html" data-nav-link>Symposia</a></li>
               <li class="nav-item"><a class="nav-link" href="awards.html" data-nav-link>Awards</a></li>
               <li class="nav-item"><a class="nav-link" href="sponsorships.html" data-nav-link>Sponsorships</a></li>
               -->
@@ -52,11 +54,11 @@ const renderSiteChrome = () => {
                 >
                 <div class="d-flex flex-column align-items-center text-center gap-2">
                   <p class="mb-0">World Congress on Neurohypophysial Hormones (WCNH) 2027</p>
-                  <p class="mb-0"><a href="mailto:info@wcnh2027.com">info@wcnh2027.com</a></p>
+                  <p class="mb-0"><a href="mailto:wcnh2027@gmail.com">wcnh2027@gmail.com</a></p>
                   <p class="mb-0 small">
                     <a href="index.html">Home</a> |
                     <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a> |
-                    <a href="mailto:info@wcnh2027.com">Contact Us</a>
+                    <a href="mailto:wcnh2027@gmail.com">Contact Us</a>
                   </p>
                 </div>
               </div>

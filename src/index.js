@@ -118,7 +118,7 @@ export default {
       return json({ error: "Choose one registration tier and valid attendee add-ons." }, 400);
     }
     if (!env.STRIPE_SECRET_KEY || !env.REGISTRATION_URL) {
-      return json({ error: "Checkout is temporarily unavailable. Please contact info@wcnh2027.com." }, 503);
+      return json({ error: "Checkout is temporarily unavailable. Please contact wcnh2027@gmail.com." }, 503);
     }
 
     try {

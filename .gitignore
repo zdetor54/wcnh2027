@@ -3,6 +3,7 @@
 !programme.html
 !registration.html
 !speakers.html
+!abstracts.html
 
 # Local Worker credentials and generated tooling files
 .dev.vars*
