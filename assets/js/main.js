@@ -23,6 +23,7 @@ const renderSiteChrome = () => {
               <li class="nav-item"><a class="nav-link" href="speakers.html" data-nav-link>Speakers</a></li>
               <li class="nav-item"><a class="nav-link" href="abstracts.html" data-nav-link>Abstracts</a></li>
               <li class="nav-item"><a class="nav-link" href="registration.html" data-nav-link>Registration</a></li>
+              <li class="nav-item"><a class="nav-link" href="accommodation.html" data-nav-link>Accommodation</a></li>
               <!--
               <li class="nav-item"><a class="nav-link" href="symposia.html" data-nav-link>Symposia</a></li>
               <li class="nav-item"><a class="nav-link" href="awards.html" data-nav-link>Awards</a></li>
