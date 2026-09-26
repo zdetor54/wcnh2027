@@ -80,7 +80,7 @@
 }
 
 .registration-venue-image {
-  height: clamp(10rem, 16vw, 12rem);
+  height: clamp(16rem, 25vw, 20rem);
   object-position: center 65%;
   filter: none;
 }
@@ -113,5 +113,40 @@
 @media (max-width: 375px) {
   .registration-choice {
     flex-wrap: wrap;
+  }
+}
+
+/* Keep both rates alongside each category, including on narrow screens. */
+.registration-tier {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
+
+.registration-fees {
+  display: grid;
+  grid-template-columns: repeat(2, 6rem);
+  gap: 1rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.registration-early {
+  color: var(--color-primary);
+}
+
+.registration-standard .registration-price {
+  font-weight: 400;
+  text-decoration: line-through;
+}
+
+@media (max-width: 767px) {
+  .registration-tier {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .registration-fees {
+    grid-column: 2;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    text-align: left;
   }
 }

@@ -111,7 +111,7 @@ Deno.test({
       }
       await page.locator("#tier-faculty").focus();
       await page.keyboard.press("ArrowRight");
-      assert.equal(await page.locator("#tier-industry").isChecked(), true);
+      assert.equal(await page.locator("#tier-student").isChecked(), true);
       apiMode = "success";
       await page.locator("#checkout-submit").click();
       await page.waitForURL("https://checkout.stripe.com/c/pay/test_session");

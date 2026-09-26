@@ -11,8 +11,8 @@
     industry: { label: "Industry", cents: 99000 },
     student: { label: "Student", cents: 56000 },
     gala_dinner: { label: "Gala dinner", cents: 5000 },
-    hotel_transfer_one_way: { label: "Transfer to hotel — one-way", cents: 2700 },
-    hotel_transfer_return: { label: "Transfer to hotel — return (2 trips)", cents: 5400 },
+    hotel_transfer_one_way: { label: "Airport transfer — one-way", cents: 2700 },
+    hotel_transfer_return: { label: "Airport transfer — return (2 trips)", cents: 5400 },
   };
   const formatEuro = (cents) => new Intl.NumberFormat("en-IE", { style: "currency", currency: "EUR" }).format(cents / 100);
   const storageKey = "wcnh2027-registration-selections";

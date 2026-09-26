@@ -15,7 +15,7 @@ One checkout buys registration for one attendee. Gala dinner and transfers can o
 | Transfer to hotel — one-way (arrival or departure, one trip) | €27 |
 | Transfer to hotel — return (arrival and departure, two trips) | €54 |
 
-Transfers cover travel between the hotel and either the airport or port on arrival and departure.
+Transfers cover travel between the hotel and Herakleion or Chania airport: arrivals on 23 May 2027, departures on 28 or 29 May 2027. Airport waiting time is usually up to 60–90 minutes. Guest bookings are arranged by email; guest gala tickets are €100 (€50 for children under 14, free for babies), and transfers are €27 per person per trip. The page compares early-bird and standard fees side by side, with standard prices struck through during early-bird registration.
 
 Replace `[FEE_PERCENTAGE]` in `registration.html` before launch. This notice is informational: the organiser covers the processing fee and no surcharge is added to the displayed or charged total. There is no automatic price switch, tax calculation, or discount.
 
