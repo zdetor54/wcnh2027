@@ -32,33 +32,43 @@
         <div class="section-heading">
           <span class="section-kicker">Early-bird registration</span>
           <h2 class="section-title">Your place at WCNH 2027</h2>
-          <p>Early-bird rates until 15 January 2027. All prices cover one registered attendee.</p>
+          <p>Early-bird rates until 15 January 2027. All prices are in EUR and cover one registered attendee.</p>
         </div>
         <form id="registration-form">
           <div class="row g-4 align-items-start">
             <div class="col-lg-8">
               <fieldset class="content-panel mb-4" id="tier-options">
                 <legend class="panel-title">1. Choose your registration</legend>
-                <label class="registration-choice" for="tier-student">
-                  <input class="form-check-input" id="tier-student" type="radio" name="tierId" value="student" required>
-                  <span><strong>Student</strong><small>Postdoc / PhD students / Research assistants</small></span>
-                  <span class="registration-price" data-price-id="student">€560.00</span>
-                </label>
-                <label class="registration-choice" for="tier-faculty">
+                <p class="small">Early bird: until 15 January 2027. Standard: from 15 January 2027.</p>
+                <label class="registration-choice registration-tier" for="tier-faculty">
                   <input class="form-check-input" id="tier-faculty" type="radio" name="tierId" value="faculty" required>
-                  <span><strong>Faculty</strong><small>Academic / Clinical</small></span>
-                  <span class="registration-price" data-price-id="faculty">€710.00</span>
+                  <span class="registration-category"><strong>Faculty</strong><small>Academic / Clinical</small></span>
+                  <span class="registration-fees">
+                    <span class="registration-standard"><small>Standard</small><span class="registration-price">€810.00</span></span>
+                    <span class="registration-early"><small>Early bird</small><span class="registration-price" data-price-id="faculty">€710.00</span></span>
+                  </span>
                 </label>
-                <label class="registration-choice" for="tier-industry">
+                <label class="registration-choice registration-tier" for="tier-student">
+                  <input class="form-check-input" id="tier-student" type="radio" name="tierId" value="student" required>
+                  <span class="registration-category"><strong>Student</strong><small>Postdoc / PhD students / Research assistants</small></span>
+                  <span class="registration-fees">
+                    <span class="registration-standard"><small>Standard</small><span class="registration-price">€660.00</span></span>
+                    <span class="registration-early"><small>Early bird</small><span class="registration-price" data-price-id="student">€560.00</span></span>
+                  </span>
+                </label>
+                <label class="registration-choice registration-tier" for="tier-industry">
                   <input class="form-check-input" id="tier-industry" type="radio" name="tierId" value="industry" required>
-                  <span><strong>Industry</strong><small>Industry professionals</small></span>
-                  <span class="registration-price" data-price-id="industry">€990.00</span>
+                  <span class="registration-category"><strong>Industry</strong><small>Industry professionals</small></span>
+                  <span class="registration-fees">
+                    <span class="registration-standard"><small>Standard</small><span class="registration-price">€1,090.00</span></span>
+                    <span class="registration-early"><small>Early bird</small><span class="registration-price" data-price-id="industry">€990.00</span></span>
+                  </span>
                 </label>
-                
               </fieldset>
               <fieldset class="content-panel" id="addon-options" aria-describedby="addon-guidance">
                 <legend class="panel-title">2. Conference add-ons</legend>
                 <p id="addon-guidance">Choose your optional add-ons now. They are purchased together with registration and form part of your total. All add-on prices are for the registered attendee only; add-ons are not sold separately on this page.</p>
+                <p>Travelling with friends or family? Friends and family are welcome to join the gala dinner, and we can also arrange airport transfers for them.</p>
                 <div class="registration-addons-grid">
                   <fieldset class="registration-addon-group">
                     <legend class="h5">Gala dinner</legend>
@@ -67,6 +77,7 @@
                       <span><strong>Gala dinner reservation</strong><small>One place for the registered attendee</small></span>
                       <span class="registration-price" data-price-id="gala_dinner">€50.00</span>
                     </label>
+                    <p class="small mt-3">Non-delegate gala tickets: €100 per person, €50 for children under 14, and free for babies.</p>
                     <figure class="scenic-figure registration-venue-figure mt-3">
                       <img class="scenic-image registration-venue-image" src="assets/img/ktima-pavlaki.jpeg" alt="Tables set for dinner beneath trees overlooking the sea at Ktima Pavlaki" width="1368" height="1824" loading="lazy">
                       <figcaption class="registration-venue-caption">
@@ -75,7 +86,8 @@
                     </figure>
                   </fieldset>
                   <fieldset class="registration-addon-group">
-                    <legend class="h5">Transfer to hotel</legend>
+                    <legend class="h5">Airport transfers</legend>
+                    <p class="small">Would you like us to arrange transport to or from Herakleion or Chania airport?</p>
                     <div class="registration-transfer-options">
                       <label class="registration-choice" for="transfer-none">
                         <input class="form-check-input" id="transfer-none" type="radio" name="transferId" value="none" checked>
@@ -90,10 +102,13 @@
                         <span>Return <small>Arrival and departure · 2 trips</small></span><span class="registration-price" data-price-id="hotel_transfer_return">€54.00</span>
                       </label>
                     </div>
-                    <p class="small mt-2">€27 per person, per trip between the hotel and the airport or port, for arrival and departure. Select trips for the registered attendee only.</p>
+                    <p class="small mt-2">€27 per person, per trip between the hotel and Herakleion or Chania airport. Select trips for the registered attendee only.</p>
+                    <p class="small"><strong>Arrivals:</strong> Sunday 23 May 2027 only.<br><strong>Departures:</strong> Friday 28 May and Saturday 29 May 2027 only.</p>
+                    <p class="small">Friends and family can also book transfers for €27 per person, per trip, on these dates.</p>
+                    <p class="small mb-0">You may need to wait at the airport until a sufficient number of passengers has gathered, usually up to 60–90 minutes.</p>
                   </fieldset>
                 </div>
-                <p class="small mt-4 mb-0">Already registered, or need to arrange an add-on separately? Please email <a href="mailto:wcnh2027@gmail.com">wcnh2027@gmail.com</a> for assistance. Do not purchase another registration to add a dinner or transfer.</p>
+                <p class="small mt-4 mb-0">For friends and family bookings or separate add-ons, email <a href="mailto:wcnh2027@gmail.com">wcnh2027@gmail.com</a>. Already registered? Please don’t purchase another registration.</p>
               </fieldset>
             </div>
             <div class="col-lg-4">
