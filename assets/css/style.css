@@ -421,11 +421,13 @@ a:focus {
   backdrop-filter: blur(10px);
 }
 
-.hero-panel .eyebrow {
+.hero-panel .eyebrow,
+.content-panel .eyebrow {
   color: var(--color-accent);
 }
 
-.hero-panel .eyebrow::before {
+.hero-panel .eyebrow::before,
+.content-panel .eyebrow::before {
   background: rgba(205, 164, 77, 0.45);
 }
 

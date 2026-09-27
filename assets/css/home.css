@@ -1,0 +1,104 @@
+.key-dates-panel {
+  background: linear-gradient(145deg, var(--color-surface), var(--color-surface-alt));
+}
+
+.key-dates-panel .eyebrow {
+  font-family: var(--font-body);
+}
+
+.key-dates-list {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.key-dates-list li {
+  position: relative;
+  margin-left: 0.4rem;
+  padding: 0 0 1.35rem 1.65rem;
+  border-left: 2px solid var(--color-border);
+}
+
+.key-dates-list li:last-child {
+  padding-bottom: 0;
+  border-color: transparent;
+}
+
+/* Carry the line through the final item's top inset to meet its dot. */
+.key-dates-list li:last-child::after {
+  position: absolute;
+  top: 0;
+  left: -2px;
+  width: 2px;
+  height: 0.35rem;
+  background: var(--color-border);
+  content: "";
+}
+
+.key-dates-list li::before {
+  position: absolute;
+  top: 0.35rem;
+  left: -0.45rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  background: var(--color-surface);
+  content: "";
+}
+
+.key-dates-list li.is-past::before {
+  background: var(--color-primary);
+}
+
+.key-dates-list .key-dates-now {
+  padding-bottom: 1.25rem;
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.key-dates-list .key-dates-now::before {
+  left: -1rem;
+  width: 0.95rem;
+  height: 0.95rem;
+  border: 0;
+  border-radius: 0;
+  background: var(--color-accent);
+  clip-path: polygon(0 0, 45% 0, 100% 50%, 45% 100%, 0 100%, 55% 50%);
+}
+
+.key-dates-list time,
+.key-dates-date {
+  color: var(--color-primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.key-dates-list h4 {
+  margin: 0.35rem 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.key-dates-list p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.key-dates-state {
+  display: inline-block;
+  margin-top: 0.6rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.key-dates-state[hidden] {
+  display: none;
+}
