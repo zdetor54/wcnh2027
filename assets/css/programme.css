@@ -86,6 +86,8 @@
 }
 
 .programme-day-header h3 { margin: 0; font-size: 1.35rem; }
+.programme-day-toggle { display: none; }
+.programme-periods[hidden] { display: none !important; }
 .programme-day-header > time { color: var(--color-deep); font-weight: 500; font-size: 0.875rem; }
 .programme-periods { display: contents; }
 .programme-period { padding: 1.25rem 1rem; }
@@ -134,6 +136,52 @@
 .programme-note { margin: 1.5rem 0 0; font-size: 0.875rem; }
 
 @media (max-width: 1199.98px) {
+  .programme-collapsible .programme-day-title { display: none; }
+  .programme-collapsible .programme-day-header {
+    position: relative;
+    padding-right: 3.5rem;
+  }
+  .programme-collapsible .programme-day-header > div { flex: 1; }
+  .programme-day-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    min-height: 44px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+  .programme-day-toggle::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+  .programme-day-toggle::after {
+    content: "";
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: translateY(-70%) rotate(45deg);
+  }
+  .programme-day-toggle[aria-expanded="true"]::after {
+    transform: translateY(-30%) rotate(225deg);
+  }
+  .programme-day-toggle:focus-visible { outline: none; }
+  .programme-day-toggle:focus-visible::before {
+    outline: 3px solid var(--color-deep);
+    outline-offset: -5px;
+  }
   .programme-days { grid-template-columns: 1fr; gap: 1.5rem; }
   .programme-day { display: block; }
   .programme-periods { display: block; }
