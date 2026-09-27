@@ -11,6 +11,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/programme.css">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -27,94 +28,204 @@
       </div>
     </header>
 
-    <section class="section-space section-surface">
+    <section class="section-space section-surface programme-section" aria-labelledby="programme-heading">
       <div class="container">
-        <div class="section-heading reveal-on-scroll">
+        <div class="section-heading">
           <span class="section-kicker">Programme Outline</span>
-          <h2 class="section-title">Provisional five-day schedule overview</h2>
-          <!-- <p class="section-intro">
-            The overview table provides a fast-reading structure for the final programme and supports day-by-day editing without layout changes.
-          </p> -->
+          <h2 class="section-title" id="programme-heading">Provisional five-day schedule overview</h2>
         </div>
-        <div class="table-card reveal-on-scroll">
-
-          <div class="table-responsive">
-            <table class="table align-middle">
-              <thead>
-                <tr>
-                  <th scope="col">Day</th>
-                  <th scope="col">Date</th>
-                  <th scope="col">Activity</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">Day 1</th>
-                  <td>
-                    <span>Sunday 23/05/2027</span>
-                  </td>
-                  <td>
-                    <span class="programme-badge">Arrivals</span>
-                    <span class="programme-badge">14:00-17:00 Registration</span>
-                    <span class="programme-badge">17:00-18:00 Keynote, followed by Drinks reception & dinner 18:30 onwards</span>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">Day 2</th>
-                  <td>
-                    <span>Monday 24/05/2027</span>
-                  </td>
-                  <td>
-                    <span class="programme-badge">Conference day: Full Day</span>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">Day 3</th>
-                  <td>
-                    <span>Tuesday 25/05/2027</span>
-                  </td>
-                  <td>
-                    <span class="programme-badge">Conference day: Early morning session</span>
-                    <span class="programme-badge">Social events</span>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">Day 4</th>
-                  <td>
-                    <span>Wednesday 26/05/2027</span>
-                  </td>
-                  <td>
-                    <span class="programme-badge">Conference day: Full Day</span>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">Day 5</th>
-                  <td>
-                    <span>Thursday 27/05/2027</span>
-                  </td>
-                  <td>
-                    <span class="programme-badge">Conference day: Full Day</span>
-                    <span class="programme-badge">Gala dinner & Prizes</span>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row"></th>
-                  <td>
-                    <span>Friday 28/05/2027</span>
-                  </td>
-                  <td>
-                    <span class="programme-badge">Departures</span>
-                    <span class="programme-badge">Extra optional day with scheduled social activities (e.g. hiking at Samaria Gorge National Park)</span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <br>
-            <p>
-              Notes: Aquila Rithymna Beach will be offerring preferential rates from Saturday, 22/05/2017 until Sunday, 30/05/2027.
-            </p>
+        <div class="programme-highlights" role="group" aria-labelledby="programme-highlight-label">
+          <p id="programme-highlight-label" class="programme-highlight-label">Highlight sessions</p>
+          <div class="programme-legend">
+            <button type="button" class="programme-plenary" data-programme-category="programme-plenary" aria-pressed="true"><span class="programme-toggle-mark" aria-hidden="true">✓</span>Plenaries &amp; keynotes</button>
+            <button type="button" class="programme-symposium" data-programme-category="programme-symposium" aria-pressed="true"><span class="programme-toggle-mark" aria-hidden="true">✓</span>Symposia</button>
+            <button type="button" class="programme-social" data-programme-category="programme-social" aria-pressed="true"><span class="programme-toggle-mark" aria-hidden="true">✓</span>Social events</button>
           </div>
         </div>
+        <div class="programme-days">
+          <article class="programme-day" id="programme-sunday" aria-labelledby="programme-sunday-heading">
+            <header class="programme-day-header">
+              <div>
+                <p class="programme-day-number">Day 01</p>
+                <h3 id="programme-sunday-heading">Sunday</h3>
+              </div>
+              <time datetime="2027-05-23">23 May 2027</time>
+            </header>
+            <div class="programme-periods">
+              <section class="programme-period programme-period-empty" aria-label="Sunday morning">
+                <h4>Morning</h4>
+                <p aria-label="No events listed">—</p>
+              </section>
+              <div class="programme-period programme-lunch programme-period-empty" aria-hidden="true"></div>
+              <section class="programme-period" aria-labelledby="programme-sunday-late-afternoon">
+                <h4 id="programme-sunday-late-afternoon">Late afternoon</h4>
+                <ul class="programme-events">
+                  <li>Opening remarks</li>
+                  <li class="programme-plenary">Keynote Lecture 1: Valery Grinevich</li>
+                </ul>
+              </section>
+              <section class="programme-period" aria-labelledby="programme-sunday-evening">
+                <h4 id="programme-sunday-evening">Evening</h4>
+                <ul class="programme-events">
+                  <li>Special award 1</li>
+                  <li class="programme-social">Welcome reception</li>
+                </ul>
+              </section>
+            </div>
+          </article>
+          <article class="programme-day" id="programme-monday" aria-labelledby="programme-monday-heading">
+            <header class="programme-day-header">
+              <div>
+                <p class="programme-day-number">Day 02</p>
+                <h3 id="programme-monday-heading">Monday</h3>
+              </div>
+              <time datetime="2027-05-24">24 May 2027</time>
+            </header>
+            <div class="programme-periods">
+              <section class="programme-period" aria-labelledby="programme-monday-morning">
+                <h4 id="programme-monday-morning">Morning</h4>
+                <ul class="programme-events">
+                  <li class="programme-plenary">Plenary 1</li>
+                  <li class="programme-symposium">Symposium 1</li>
+                  <li class="programme-break">Coffee break</li>
+                  <li class="programme-symposium">Symposium 2</li>
+                </ul>
+              </section>
+              <section class="programme-period programme-lunch" aria-labelledby="programme-monday-lunch">
+                <h4 id="programme-monday-lunch">Lunch break</h4>
+              </section>
+              <section class="programme-period" aria-labelledby="programme-monday-afternoon">
+                <h4 id="programme-monday-afternoon">Afternoon</h4>
+                <ul class="programme-events">
+                  <li class="programme-symposium">Symposium 3</li>
+                  <li class="programme-break">Coffee break</li>
+                  <li>Poster session 1</li>
+                  <li>Emerging themes 1</li>
+                </ul>
+              </section>
+              <section class="programme-period programme-period-empty" aria-label="Monday evening">
+                <h4>Evening</h4>
+                <p aria-label="No events listed">—</p>
+              </section>
+            </div>
+          </article>
+          <article class="programme-day" id="programme-tuesday" aria-labelledby="programme-tuesday-heading">
+            <header class="programme-day-header">
+              <div>
+                <p class="programme-day-number">Day 03</p>
+                <h3 id="programme-tuesday-heading">Tuesday</h3>
+              </div>
+              <time datetime="2027-05-25">25 May 2027</time>
+            </header>
+            <div class="programme-periods">
+              <section class="programme-period" aria-labelledby="programme-tuesday-morning">
+                <h4 id="programme-tuesday-morning">Morning</h4>
+                <ul class="programme-events">
+                  <li class="programme-plenary">Plenary 2</li>
+                  <li class="programme-symposium">Symposium 4</li>
+                  <li class="programme-break">Coffee break</li>
+                  <li class="programme-symposium">Symposium 5</li>
+                </ul>
+              </section>
+              <section class="programme-period programme-lunch" aria-labelledby="programme-tuesday-lunch">
+                <h4 id="programme-tuesday-lunch">Lunch break</h4>
+              </section>
+              <section class="programme-period" aria-labelledby="programme-tuesday-afternoon">
+                <h4 id="programme-tuesday-afternoon">Afternoon</h4>
+                <ul class="programme-events">
+                  <li class="programme-social">Social event / Free time</li>
+                </ul>
+              </section>
+              <section class="programme-period programme-period-empty" aria-label="Tuesday evening">
+                <h4>Evening</h4>
+                <p aria-label="No events listed">—</p>
+              </section>
+            </div>
+          </article>
+          <article class="programme-day" id="programme-wednesday" aria-labelledby="programme-wednesday-heading">
+            <header class="programme-day-header">
+              <div>
+                <p class="programme-day-number">Day 04</p>
+                <h3 id="programme-wednesday-heading">Wednesday</h3>
+              </div>
+              <time datetime="2027-05-26">26 May 2027</time>
+            </header>
+            <div class="programme-periods">
+              <section class="programme-period" aria-labelledby="programme-wednesday-morning">
+                <h4 id="programme-wednesday-morning">Morning</h4>
+                <ul class="programme-events">
+                  <li class="programme-plenary">Plenary 3</li>
+                  <li class="programme-symposium">Symposium 6</li>
+                  <li class="programme-break">Coffee break</li>
+                  <li class="programme-symposium">Symposium 7</li>
+                </ul>
+              </section>
+              <section class="programme-period programme-lunch" aria-labelledby="programme-wednesday-lunch">
+                <h4 id="programme-wednesday-lunch">Lunch break</h4>
+              </section>
+              <section class="programme-period" aria-labelledby="programme-wednesday-afternoon">
+                <h4 id="programme-wednesday-afternoon">Afternoon</h4>
+                <ul class="programme-events">
+                  <li class="programme-symposium">Symposium 8</li>
+                  <li class="programme-break">Coffee break</li>
+                  <li>Poster session 2</li>
+                  <li>Emerging themes 2</li>
+                </ul>
+              </section>
+              <section class="programme-period" aria-labelledby="programme-wednesday-evening">
+                <h4 id="programme-wednesday-evening">Evening</h4>
+                <ul class="programme-events">
+                  <li>WCNH future</li>
+                </ul>
+              </section>
+            </div>
+          </article>
+          <article class="programme-day" id="programme-thursday" aria-labelledby="programme-thursday-heading">
+            <header class="programme-day-header">
+              <div>
+                <p class="programme-day-number">Day 05</p>
+                <h3 id="programme-thursday-heading">Thursday</h3>
+              </div>
+              <time datetime="2027-05-27">27 May 2027</time>
+            </header>
+            <div class="programme-periods">
+              <section class="programme-period" aria-labelledby="programme-thursday-morning">
+                <h4 id="programme-thursday-morning">Morning</h4>
+                <ul class="programme-events">
+                  <li class="programme-plenary">Plenary 4</li>
+                  <li class="programme-symposium">Symposium 9</li>
+                  <li class="programme-break">Coffee break</li>
+                  <li class="programme-symposium">Symposium 10</li>
+                </ul>
+              </section>
+              <section class="programme-period programme-lunch" aria-labelledby="programme-thursday-lunch">
+                <h4 id="programme-thursday-lunch">Lunch break</h4>
+              </section>
+              <section class="programme-period" aria-labelledby="programme-thursday-afternoon">
+                <h4 id="programme-thursday-afternoon">Afternoon</h4>
+                <ul class="programme-events">
+                  <li class="programme-symposium">Symposium 11</li>
+                  <li class="programme-break">Coffee break</li>
+                  <li>Special award 2</li>
+                  <li class="programme-plenary">Keynote Lecture 2</li>
+                </ul>
+              </section>
+              <section class="programme-period" aria-labelledby="programme-thursday-evening">
+                <h4 id="programme-thursday-evening">Evening</h4>
+                <ul class="programme-events">
+                  <li>Closing remarks</li>
+                  <li class="programme-social">Sea view dinner</li>
+                </ul>
+              </section>
+            </div>
+          </article>
+        </div>
+        <aside class="programme-extension programme-social" aria-labelledby="departures-heading">
+          <p class="programme-day-number"><time datetime="2027-05-28">Friday 28 May 2027</time></p>
+          <h3 id="departures-heading">Departures &amp; optional activities</h3>
+          <p>Extra optional day with scheduled social activities, such as hiking at Samaria Gorge National Park.</p>
+        </aside>
+        <p class="programme-note"><a href="https://aquilarithymnabeach.reserve-online.net/?checkin=2027-05-22&amp;rooms=1&amp;nights=8&amp;adults=2&amp;bkcode=WCNH&amp;currency=GBP" target="_blank" rel="noopener noreferrer">Aquila Rithymna Beach<span class="visually-hidden"> (opens in a new tab)</span></a> is offering preferential rates from Saturday, 22 May to Sunday, 30 May 2027.</p>
       </div>
     </section>
 
@@ -326,5 +437,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/programme.js"></script>
 </body>
 </html>
