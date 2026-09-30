@@ -1,4 +1,14 @@
 /* Loaded only by registration.html. */
+.registration-bank-details {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 0.5rem 0.5rem;
+}
+
+.registration-bank-details dd {
+  margin: 0;
+}
+
 #checkout-preview {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
