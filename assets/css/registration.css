@@ -1,4 +1,22 @@
 /* Loaded only by registration.html. */
+.registration-payment-reference {
+  padding: 1rem;
+  border-left: 4px solid var(--color-primary);
+  border-radius: 0.5rem;
+  background: var(--color-primary-soft);
+  color: var(--color-deep);
+}
+
+.registration-bank-details {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 0.5rem 0.5rem;
+}
+
+.registration-bank-details dd {
+  margin: 0;
+}
+
 #checkout-preview {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
