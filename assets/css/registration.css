@@ -1,4 +1,14 @@
 /* Loaded only by registration.html. */
+.registration-payment-label {
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+.registration-payment-label-preferred {
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
 .registration-payment-reference {
   padding: 1rem;
   border-left: 4px solid var(--color-primary);
