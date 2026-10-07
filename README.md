@@ -1,6 +1,6 @@
 # WCNH 2027
 
-Static conference website on GitHub Pages, with a separate Cloudflare Worker for Stripe Checkout. `registration.html` is a new page. The existing homepage, programme, shared styles, and navigation are unchanged. Registration stays hidden in the navigation until a later launch.
+Static conference website on GitHub Pages, with a separate Cloudflare Worker for Stripe Checkout. `registration.html` remains the current bank-transfer page linked from the shared navigation. `registration_stripe.html` is the separate merged draft for Stripe integration and testing.
 
 ## Registration
 
@@ -17,15 +17,15 @@ One checkout buys registration for one attendee. Gala dinner and transfers can o
 
 Transfers cover travel between the hotel and Herakleion or Chania airport: arrivals on 23 May 2027, departures on 28 or 29 May 2027. Airport waiting time is usually up to 60–90 minutes. Guest bookings are arranged by email; guest gala tickets are €100 (€50 for children under 14, free for babies), and transfers are €27 per person per trip. The page compares early-bird and standard fees side by side, with standard prices struck through during early-bird registration.
 
-Replace `[FEE_PERCENTAGE]` in `registration.html` before launch. This notice is informational: the organiser covers the processing fee and no surcharge is added to the displayed or charged total. There is no automatic price switch, tax calculation, or discount.
+`registration_stripe.html` combines the current registration content and preferred bank-transfer option with Stripe Checkout. The current `registration.html` is unchanged. It loads only `assets/js/registration.js`, which handles totals and checkout together. The Stripe fee notice retains the current approximate 2.6% rate; review it before launch. This notice is informational: the organiser covers the processing fee and no surcharge is added to the displayed or charged total. There is no automatic price switch, tax calculation, or discount.
 
 The price table in `src/index.js` is authoritative. The browser table in `assets/js/registration.js` is for display only. No monetary values are accepted from the browser. Stripe products or Price IDs do not need to be created beforehand.
 
 ### Inspect checkout without a Stripe account
 
-While `CHECKOUT_ENDPOINT` still contains its placeholder, the normal registration page automatically uses preview mode. Once an endpoint is configured, use `?preview=1` to explicitly enable preview mode.
+While `CHECKOUT_ENDPOINT` still contains its placeholder, the Stripe draft automatically uses preview mode. Once an endpoint is configured, use `?preview=1` to explicitly enable preview mode.
 
-Serve the repository with `python -m http.server 8000 --bind 127.0.0.1`, then open `http://localhost:8000/registration.html?preview=1`. Choose a tier and add-ons and click **Preview checkout request**. The page shows the browser JSON and the decoded and encoded Stripe request body, using the Worker's actual payload builder. No API request is sent, no secret key is needed, and no checkout session is created. Preview return URLs use the current page address; deployed checkout uses `REGISTRATION_URL`. Module loading requires HTTP rather than opening the HTML as a local file. Once the endpoint is configured, remove `?preview=1` to restore normal checkout.
+Serve the repository with `python -m http.server 8000 --bind 127.0.0.1`, then open `http://localhost:8000/registration_stripe.html?preview=1`. Choose a tier and add-ons and click **Preview checkout request**. The page shows the browser JSON and the decoded and encoded Stripe request body, using the Worker's actual payload builder. No API request is sent, no secret key is needed, and no checkout session is created. Preview return URLs use the current page address; deployed checkout uses `REGISTRATION_URL`. Module loading requires HTTP rather than opening the HTML as a local file. Once the endpoint is configured, remove `?preview=1` to restore normal checkout.
 
 The Stripe request contains only `mode`, `success_url`, and each line item's currency, amount, name and quantity. No metadata, cancellation URL, payment-method restriction or billing-address override is sent.
 
@@ -90,7 +90,7 @@ These check all displayed totals, the submitted IDs, error recovery, duplicate-s
 4. **Test locally.** Using your editor, create an ignored `.dev.vars` containing `STRIPE_SECRET_KEY="your test key"`. Use test keys only locally. Start the Worker with local configuration overrides:
 
    ```sh
-   wrangler dev --port 8787 --var ALLOWED_ORIGIN:http://localhost:8000 --var REGISTRATION_URL:http://localhost:8000/registration.html
+   wrangler dev --port 8787 --var ALLOWED_ORIGIN:http://localhost:8000 --var REGISTRATION_URL:http://localhost:8000/registration_stripe.html
    ```
 
    In another terminal, serve this repository:
@@ -99,7 +99,7 @@ These check all displayed totals, the submitted IDs, error recovery, duplicate-s
    python3 -m http.server 8000 --bind 127.0.0.1
    ```
 
-   Temporarily set `CHECKOUT_ENDPOINT` in `assets/js/registration.js` to `http://localhost:8787/create-checkout-session`. Open `http://localhost:8000/registration.html` (use exactly `localhost`, not a file URL). This local server can serve files in the repository including local configuration; bind it only to loopback and close it after testing.
+   Temporarily set `CHECKOUT_ENDPOINT` in `assets/js/registration.js` to `http://localhost:8787/create-checkout-session`. Open `http://localhost:8000/registration_stripe.html` (use exactly `localhost`, not a file URL). This local server can serve files in the repository including local configuration; bind it only to loopback and close it after testing.
 
 5. **Verify payment in test mode.** Try all selections. Faculty + gala + return is €814; Student alone is €560; Industry + gala + return is €1,094. Stripe must show the same line items and total, without an added percentage. Test browser back navigation and retry, then a completed payment using `4242 4242 4242 4242`, a future expiry, and a valid-format CVC. Inspect the completed payment and purchased line items in Stripe. See [Stripe testing](https://docs.stripe.com/testing).
 
@@ -113,7 +113,7 @@ These check all displayed totals, the submitted IDs, error recovery, duplicate-s
 
    Copy the resulting `https://wcnh2027-registration.<your-subdomain>.workers.dev` URL. Set `CHECKOUT_ENDPOINT` to that URL plus `/create-checkout-session`. The placeholder deliberately prevents checkout until configured. No secrets belong in this constant.
 
-7. **Publish the page.** Replace the fee placeholder and review rates/copy. Commit and push the new registration assets, Worker, configuration, tests, documentation, and `.gitignore` through your existing GitHub Pages workflow. If Pages publishes from a different branch, merge there first. `.gitignore` now allows the new registration HTML and excludes local secrets/tooling output. Test the direct URL `https://zdetor54.github.io/wcnh2027/registration.html` with the deployed test-mode Worker. This URL is public even though the nav link remains hidden. No edits to `index.html` or `programme.html` are required.
+7. **Publish the page when ready.** After testing, copy the approved `registration_stripe.html` over `registration.html`. Review the fee notice and rates/copy. Commit and push the registration assets, Worker, configuration, tests, documentation, and `.gitignore` through your existing GitHub Pages workflow. If Pages publishes from a different branch, merge there first. `.gitignore` allows the registration HTML and excludes local secrets/tooling output. Test the direct URL `https://zdetor54.github.io/wcnh2027/registration.html` with the deployed test-mode Worker. Registration is already linked from the shared navigation. No edits to `index.html` or `programme.html` are required.
 
 8. **Switch to live payments when ready.** Complete Stripe account activation. Run `wrangler secret put STRIPE_SECRET_KEY` again and enter the live secret at the prompt; this updates the deployed Worker. The Worker URL/frontend do not change. Test cards work only with test-mode keys. Any real payment verification should be performed intentionally by the organiser.
 

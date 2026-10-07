@@ -1,6 +1,6 @@
 (() => {
   // Set this to the deployed Worker URL; use http://localhost:8787 for local testing.
-  const CHECKOUT_ENDPOINT = "https://REPLACE_WITH_YOUR_WORKER.workers.dev/create-checkout-session";
+  const CHECKOUT_ENDPOINT = "https://wcnh2027-registration.zdetor54.workers.dev/create-checkout-session";
   const previewMode = CHECKOUT_ENDPOINT.includes("REPLACE_WITH_YOUR_WORKER")
     || new URLSearchParams(window.location.search).get("preview") === "1";
 
@@ -27,8 +27,6 @@
   let pending = false;
   if (previewMode) {
     submit.textContent = "Preview checkout request";
-    returnNotice.hidden = false;
-    returnNotice.textContent = "Preview mode: submitting shows the API and Stripe request bodies. No checkout request or payment will be made.";
   }
 
   const selections = () => {
