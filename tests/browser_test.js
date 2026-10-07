@@ -61,7 +61,10 @@ Deno.test({
           body: JSON.stringify(apiMode === "success" ? { url: "https://checkout.stripe.com/c/pay/test_session" } : { error: "Test failure" }),
         });
       });
-      await page.goto(`${site}registration.html`, { waitUntil: "domcontentloaded" });
+      await page.goto(`${site}registration_stripe.html`, { waitUntil: "domcontentloaded" });
+      assert.match(await page.locator(".registration-bank-details").textContent(), /GB80MONZ04000566204620/);
+      assert.match(await page.locator(".registration-payment-reference").textContent(), /WCNH2027 Jane Smith/);
+      assert.equal(await page.locator('[name="tierId"]').first().getAttribute("value"), "student");
       assert.equal(await page.locator("#checkout-submit").isDisabled(), true);
       for (const [tier, price] of [["faculty", 710], ["industry", 990], ["student", 560]]) {
         for (const gala of [false, true]) {
@@ -99,19 +102,19 @@ Deno.test({
       assert.equal(await page.locator("#tier-student").isEnabled(), true);
       assert.equal(await page.evaluate(() => document.activeElement.id), "checkout-error");
 
-      await page.goto(`${site}registration.html?checkout=cancelled`, { waitUntil: "domcontentloaded" });
+      await page.goto(`${site}registration_stripe.html?checkout=cancelled`, { waitUntil: "domcontentloaded" });
       assert.match(await page.locator("#checkout-return").textContent(), /without completing/);
       assert.equal(await page.locator("#registration-total").textContent(), "€664.00");
-      await page.goto(`${site}registration.html?checkout=success`, { waitUntil: "domcontentloaded" });
+      await page.goto(`${site}registration_stripe.html?checkout=success`, { waitUntil: "domcontentloaded" });
       assert.match(await page.locator("#checkout-return").textContent(), /Check your payment confirmation/);
-      assert.equal(await page.locator('nav a[href="registration.html"]').count(), 0);
+      assert.equal(await page.locator('nav a[href="registration.html"]').count(), 1);
       for (const width of [320, 375, 768, 1280]) {
         await page.setViewportSize({ width, height: 900 });
         assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true, `horizontal overflow at ${width}px`);
       }
       await page.locator("#tier-faculty").focus();
       await page.keyboard.press("ArrowRight");
-      assert.equal(await page.locator("#tier-student").isChecked(), true);
+      assert.equal(await page.locator("#tier-industry").isChecked(), true);
       apiMode = "success";
       await page.locator("#checkout-submit").click();
       await page.waitForURL("https://checkout.stripe.com/c/pay/test_session");
