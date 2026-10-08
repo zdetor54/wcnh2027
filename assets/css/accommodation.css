@@ -1,0 +1,124 @@
+.hotel-gallery {
+  min-width: 0;
+}
+
+.hotel-gallery-carousel {
+  position: relative;
+  border-radius: 0.9rem;
+}
+
+.hotel-gallery-track {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 0.9rem;
+}
+
+.hotel-gallery-preview {
+  position: absolute;
+  inset: 0;
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.65s ease;
+}
+
+.hotel-gallery-preview.is-active {
+  z-index: 1;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hotel-gallery-arrow {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid rgba(21, 51, 59, 0.16);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--color-deep);
+  font-size: 1rem;
+  line-height: 1;
+  opacity: 0.68;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.hotel-gallery-arrow:hover,
+.hotel-gallery-arrow:focus-visible {
+  opacity: 1;
+  background: #fff;
+}
+
+.hotel-gallery-arrow-previous {
+  left: 0.75rem;
+}
+
+.hotel-gallery-arrow-next {
+  right: 0.75rem;
+}
+
+.hotel-gallery-preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hotel-gallery-thumbnails {
+  display: flex;
+  gap: 0.55rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin-top: 0.8rem;
+  padding: 0.15rem 0 0.45rem;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.hotel-gallery-thumbnails::-webkit-scrollbar {
+  display: none;
+}
+
+.hotel-gallery-thumbnail {
+  flex: 0 0 clamp(4.5rem, 22%, 6.5rem);
+  overflow: hidden;
+  border-radius: 0.45rem;
+  opacity: 0.58;
+  scroll-snap-align: center;
+  transition: opacity 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hotel-gallery-thumbnail:hover,
+.hotel-gallery-thumbnail[aria-current="true"] {
+  opacity: 1;
+}
+
+.hotel-gallery-thumbnail[aria-current="true"] {
+  box-shadow: 0 0 0 2px var(--color-accent);
+}
+
+.hotel-gallery-thumbnail img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.hotel-gallery-preview:focus-visible,
+.hotel-gallery-arrow:focus-visible,
+.hotel-gallery-thumbnail:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hotel-gallery-preview {
+    transition: none;
+  }
+}
