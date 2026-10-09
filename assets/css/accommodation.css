@@ -117,6 +117,56 @@
   outline-offset: 2px;
 }
 
+.room-share {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1rem 2rem;
+}
+
+.room-share-header {
+  flex: 1 1 100%;
+}
+
+.room-share-header .panel-title {
+  margin-bottom: 0;
+}
+
+.room-share-body {
+  flex: 1 1 18rem;
+  min-width: 0;
+}
+
+.room-share .btn-outline-primary {
+  --bs-btn-color: var(--color-primary);
+  --bs-btn-border-color: var(--color-primary);
+  --bs-btn-hover-bg: var(--color-primary);
+  --bs-btn-hover-border-color: var(--color-primary);
+  --bs-btn-active-bg: var(--color-deep);
+  --bs-btn-active-border-color: var(--color-deep);
+}
+
+.room-share-qr {
+  flex: 0 0 12.5rem;
+  padding: 0.85rem 0.85rem 0.7rem;
+  border-radius: 0.9rem;
+  background: var(--color-surface-alt);
+}
+
+.room-share-qr img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.45rem;
+}
+
+.room-share-disclaimer {
+  flex: 1 1 100%;
+  margin-top: 0.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-border);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hotel-gallery-preview {
     transition: none;
