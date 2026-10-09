@@ -346,6 +346,10 @@ a:focus {
 }
 
 .hero-tagline {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: normal;
   font-size: clamp(1.2rem, 2vw, 1.55rem);
   color: rgba(255, 249, 243, 0.98);
   text-shadow: 0 0.2rem 0.9rem rgba(0, 0, 0, 0.22);
