@@ -27,7 +27,8 @@
     </header>
     <section class="section-space">
       <div class="container">
-        <noscript><p class="alert alert-warning">Please enable JavaScript to calculate your total automatically, or contact <a href="mailto:wcnh2027@gmail.com">wcnh2027@gmail.com</a> for help.</p></noscript>
+        <div id="checkout-return" class="alert alert-info" role="status" tabindex="-1" hidden></div>
+        <noscript><p class="alert alert-warning">Please enable JavaScript to calculate your total and continue to Stripe payment, or contact <a href="mailto:wcnh2027@gmail.com">wcnh2027@gmail.com</a> for help.</p></noscript>
         <div class="section-heading">
           <span class="section-kicker">Early-bird registration</span>
           <h2 class="section-title">Your place at WCNH 2027</h2>
@@ -140,8 +141,14 @@
                   <p class="mb-0">For example:<br><strong>WCNH2027 Jane Smith</strong></p>
                 </div>
                 <div class="border-top mt-4 pt-3">
-                  <h3 class="h5 d-flex flex-wrap align-items-center gap-2">Pay by Stripe <span class="badge rounded-pill text-bg-light registration-payment-label">Available by <time datetime="2026-10-12">12 October</time></span></h3>
+                  <h3 class="h5">Pay by Stripe</h3>
                   <p class="small mb-0">A processing fee of about 1.6% to 3.6% is deducted from your registration fee before it reaches us.</p>
+                  <p id="checkout-error" class="alert alert-danger small mt-3" role="alert" tabindex="-1" hidden></p>
+                  <div class="mt-4">
+                    <button class="btn btn-primary" type="submit" id="checkout-submit" disabled>Continue to payment</button>
+                  </div>
+                  <p id="checkout-status" class="small mt-3 mb-0" role="status" aria-live="polite">Choose a tier, then continue to secure payment.</p>
+                  <p class="small mt-2 mb-0">You will review your selections and pay on Stripe’s secure checkout page.</p>
                 </div>
               </aside>
             </div>
@@ -153,6 +160,6 @@
   <div data-site-footer></div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
-  <script src="assets/js/registration-bank.js"></script>
+  <script src="assets/js/registration.js?v=checkout-preview-2"></script>
 </body>
 </html>
