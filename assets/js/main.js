@@ -19,17 +19,26 @@ const renderSiteChrome = () => {
           <div class="collapse navbar-collapse" id="siteNav">
             <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
               <li class="nav-item"><a class="nav-link" href="index.html" data-nav-link>Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="programme.html" data-nav-link>Programme</a></li>
-              <li class="nav-item"><a class="nav-link" href="speakers.html" data-nav-link>Speakers</a></li>
-              <li class="nav-item"><a class="nav-link" href="advisory-committee.html" data-nav-link>Advisory Committee</a></li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-nav-group>Programme</a>
+                <ul class="dropdown-menu site-dropdown">
+                  <li><a class="dropdown-item" href="programme.html" data-nav-link>Overview</a></li>
+                  <li><a class="dropdown-item" href="speakers.html" data-nav-link>Speakers</a></li>
+                  <li><a class="dropdown-item" href="symposia.html" data-nav-link>Symposia</a></li>
+                  <!-- <li><a class="dropdown-item" href="awards.html" data-nav-link>Awards</a></li> -->
+                </ul>
+              </li>
               <li class="nav-item"><a class="nav-link" href="abstracts.html" data-nav-link>Abstracts</a></li>
-              <li class="nav-item"><a class="nav-link" href="registration.html" data-nav-link>Registration</a></li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-nav-group>About</a>
+                <ul class="dropdown-menu site-dropdown">
+                  <li><a class="dropdown-item" href="index.html#committee">Organising Committee</a></li>
+                  <li><a class="dropdown-item" href="advisory-committee.html" data-nav-link>Advisory Committee</a></li>
+                  <!-- <li><a class="dropdown-item" href="sponsorships.html" data-nav-link>Sponsors</a></li> -->
+                </ul>
+              </li>
               <li class="nav-item"><a class="nav-link" href="accommodation.html" data-nav-link>Accommodation</a></li>
-              <!--
-              <li class="nav-item"><a class="nav-link" href="symposia.html" data-nav-link>Symposia</a></li>
-              <li class="nav-item"><a class="nav-link" href="awards.html" data-nav-link>Awards</a></li>
-              <li class="nav-item"><a class="nav-link" href="sponsorships.html" data-nav-link>Sponsorships</a></li>
-              -->
+              <li class="nav-item nav-cta"><a class="btn btn-primary" href="registration.html" data-nav-link>Register</a></li>
             </ul>
           </div>
         </div>
@@ -98,6 +107,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (href === currentPage) {
       link.classList.add("active");
       link.setAttribute("aria-current", "page");
+
+      // Highlight the parent dropdown toggle when one of its pages is open.
+      const groupToggle = link.closest(".dropdown")?.querySelector("[data-nav-group]");
+      groupToggle?.classList.add("nav-group-active");
     }
   });
 
