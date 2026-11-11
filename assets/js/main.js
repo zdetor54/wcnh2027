@@ -32,6 +32,7 @@ const renderSiteChrome = () => {
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-nav-group>About</a>
                 <ul class="dropdown-menu site-dropdown">
+                  <li><a class="dropdown-item" href="index.html#committee">Organising Committee</a></li>
                   <li><a class="dropdown-item" href="advisory-committee.html" data-nav-link>Advisory Committee</a></li>
                   <!-- <li><a class="dropdown-item" href="sponsorships.html" data-nav-link>Sponsors</a></li> -->
                 </ul>

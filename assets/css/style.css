@@ -1285,3 +1285,8 @@ a:focus {
 .symposium-card-pending h3 {
   color: var(--color-ink);
 }
+
+/* Keep anchored sections clear of the sticky navbar. */
+#committee {
+  scroll-margin-top: 5rem;
+}
