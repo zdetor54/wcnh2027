@@ -25,10 +25,10 @@ const renderSiteChrome = () => {
                   <li><a class="dropdown-item" href="programme.html" data-nav-link>Overview</a></li>
                   <li><a class="dropdown-item" href="speakers.html" data-nav-link>Speakers</a></li>
                   <!-- <li><a class="dropdown-item" href="symposia.html" data-nav-link>Symposia</a></li> -->
-                  <!-- <li><a class="dropdown-item" href="awards.html" data-nav-link>Awards</a></li> -->
                 </ul>
               </li>
               <li class="nav-item"><a class="nav-link" href="abstracts.html" data-nav-link>Abstracts</a></li>
+              <li class="nav-item"><a class="nav-link" href="awards.html" data-nav-link>Awards</a></li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-nav-group>About</a>
                 <ul class="dropdown-menu site-dropdown">
