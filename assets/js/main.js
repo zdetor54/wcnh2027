@@ -24,7 +24,7 @@ const renderSiteChrome = () => {
                 <ul class="dropdown-menu site-dropdown">
                   <li><a class="dropdown-item" href="programme.html" data-nav-link>Overview</a></li>
                   <li><a class="dropdown-item" href="speakers.html" data-nav-link>Speakers</a></li>
-                  <!-- <li><a class="dropdown-item" href="lifetime-awards.html" data-nav-link>Lifetime Awards</a></li> -->
+                  <li><a class="dropdown-item" href="lifetime-awards.html" data-nav-link>Lifetime Awards</a></li>
                   <!-- <li><a class="dropdown-item" href="symposia.html" data-nav-link>Symposia</a></li> -->
                 </ul>
               </li>
